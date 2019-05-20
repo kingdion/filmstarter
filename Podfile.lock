@@ -1,0 +1,16 @@
+PODS:
+  - Hue (4.0.0)
+
+DEPENDENCIES:
+  - Hue
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Hue
+
+SPEC CHECKSUMS:
+  Hue: afe18b4e819e2848e7d2d5b4b33f4d3f88dd921b
+
+PODFILE CHECKSUM: 606ff175cf07a3605026f82dc7f5bd87b2b471f3
+
+COCOAPODS: 1.6.2
