@@ -9,47 +9,16 @@
 import Foundation
 import UIKit
 
-class HomeViewController: UIViewController {
-    
-    var contentView : UIView? = nil;
-    var scrollView : UIScrollView? = nil;
-    let logo = UIImageView(image: UIImage(named: "logo-white.png"));
-    
-    var loginBox : UIView? = nil;
-    
+class HomeViewController: FSBaseViewController {
     override func viewDidLoad()
     {
+        setupBackground();
+        
+        super.includeLogo = true;
+        super.includeScrollView = false;
         super.viewDidLoad();
         
-        setupBackground();
-        setupMainView();
-        setupMainLogo();
         setupButtons();
-    }
-    
-    func setupMainView()
-    {
-        contentView = UIView(frame: self.view.bounds);
-        contentView!.translatesAutoresizingMaskIntoConstraints = false;
-        
-        self.view.addSubview(contentView!);
-        
-        contentView!.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0).isActive = true;
-        contentView!.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0).isActive = true;
-        contentView!.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0).isActive = true;
-        contentView!.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0).isActive = true;
-    }
-    
-    func setupMainLogo()
-    {
-        logo.translatesAutoresizingMaskIntoConstraints = false;
-        
-        contentView!.addSubview(logo);
-        
-        logo.centerXAnchor.constraint(equalTo: contentView!.centerXAnchor).isActive = true;
-        logo.centerYAnchor.constraint(equalTo: contentView!.centerYAnchor, constant: -100).isActive = true;
-        logo.heightAnchor.constraint(equalToConstant: 50).isActive = true;
-        logo.widthAnchor.constraint(equalToConstant: 180).isActive = true;
     }
     
     func setupButtons()

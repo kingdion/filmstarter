@@ -9,48 +9,17 @@
 import Foundation
 import UIKit
 
-class LoginViewController : UIViewController
+class LoginViewController : FSBaseViewController
 {
-    var contentView : UIView? = nil;
-    var scrollView : UIScrollView? = nil;
     var loginBox : UIView? = nil;
     
     override func viewDidLoad()
     {
+        super.includeLogo = false;
+        super.includeScrollView = true;
         super.viewDidLoad();
-        self.view.backgroundColor = UIColor.white;
         
-        setupMainView()
-        setupScrollView()
         setupLoginBox()
-    }
-    
-    func setupMainView()
-    {
-        contentView = UIView(frame: self.view.bounds);
-        contentView!.translatesAutoresizingMaskIntoConstraints = false;
-        
-        self.view.addSubview(contentView!);
-        
-        contentView!.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0).isActive = true;
-        contentView!.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0).isActive = true;
-        contentView!.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0).isActive = true;
-        contentView!.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0).isActive = true;
-    }
-    
-    func setupScrollView()
-    {
-        scrollView = UIScrollView(frame: contentView!.bounds);
-        scrollView!.translatesAutoresizingMaskIntoConstraints = false;
-        scrollView!.backgroundColor = UIColor.white;
-        
-        contentView!.addSubview(scrollView!);
-        
-        scrollView!.topAnchor.constraint(equalTo: contentView!.topAnchor).isActive = true;
-        scrollView!.widthAnchor.constraint(equalTo: contentView!.widthAnchor).isActive = true;
-        scrollView!.bottomAnchor.constraint(equalTo: contentView!.bottomAnchor).isActive = true;
-        scrollView!.leadingAnchor.constraint(equalTo: contentView!.leadingAnchor).isActive = true;
-        scrollView!.trailingAnchor.constraint(equalTo: contentView!.trailingAnchor).isActive = true;
     }
     
     func setupLoginBox()
@@ -166,6 +135,15 @@ class LoginViewController : UIViewController
     
     @objc func loginButtonTap()
     {
-        self.dismiss(animated: true, completion: nil);
+        let dashboardScreen = DashboardViewController();
+        let navigationController = UINavigationController(rootViewController: dashboardScreen);
+        
+        navigationController.navigationBar.tintColor = UIColor.white;
+        navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController.navigationBar.shadowImage = UIImage()
+        navigationController.navigationBar.isTranslucent = true
+        navigationController.view.backgroundColor = .clear
+        
+        self.present(navigationController, animated: true);
     }
 }
