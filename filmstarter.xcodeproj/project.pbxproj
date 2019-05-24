@@ -20,6 +20,11 @@
 		F7206D1E228D5CF400F9EF53 /* logo-white.png in Resources */ = {isa = PBXBuildFile; fileRef = F7206D1D228D5CF400F9EF53 /* logo-white.png */; };
 		F7206D22228D818600F9EF53 /* FSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7206D21228D818600F9EF53 /* FSLabel.swift */; };
 		F7206D2C228D87F800F9EF53 /* FSInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7206D2B228D87F800F9EF53 /* FSInput.swift */; };
+		F7DFB4DD2296B2AA00626FDD /* MyriadPro-Bold.OTF in Resources */ = {isa = PBXBuildFile; fileRef = F7DFB4DB2296B2A700626FDD /* MyriadPro-Bold.OTF */; };
+		F7DFB4DE2296B2AD00626FDD /* MyriadPro-Regular.OTF in Resources */ = {isa = PBXBuildFile; fileRef = F7DFB4DC2296B2A700626FDD /* MyriadPro-Regular.OTF */; };
+		F7DFB4DF2296B2B000626FDD /* MyriadPro-SemiBold.OTF in Resources */ = {isa = PBXBuildFile; fileRef = F7DFB4DA2296B2A700626FDD /* MyriadPro-SemiBold.OTF */; };
+		F7DFB4E12296DD8F00626FDD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DFB4E02296DD8F00626FDD /* LoginViewController.swift */; };
+		F7DFB4E92297DA2D00626FDD /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DFB4E82297DA2D00626FDD /* RegisterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +45,11 @@
 		F7206D1D228D5CF400F9EF53 /* logo-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-white.png"; sourceTree = "<group>"; };
 		F7206D21228D818600F9EF53 /* FSLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSLabel.swift; sourceTree = "<group>"; };
 		F7206D2B228D87F800F9EF53 /* FSInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSInput.swift; sourceTree = "<group>"; };
+		F7DFB4DA2296B2A700626FDD /* MyriadPro-SemiBold.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-SemiBold.OTF"; sourceTree = "<group>"; };
+		F7DFB4DB2296B2A700626FDD /* MyriadPro-Bold.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Bold.OTF"; sourceTree = "<group>"; };
+		F7DFB4DC2296B2A700626FDD /* MyriadPro-Regular.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Regular.OTF"; sourceTree = "<group>"; };
+		F7DFB4E02296DD8F00626FDD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F7DFB4E82297DA2D00626FDD /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,10 +102,10 @@
 		F7206CFA228CEC6700F9EF53 /* filmstarter */ = {
 			isa = PBXGroup;
 			children = (
+				F7DFB4D32296B0C300626FDD /* Fonts */,
 				F7878AE3228EEAC900BD20A1 /* Scenes */,
 				F7206D16228D0D8D00F9EF53 /* Assets */,
 				F7206D0F228CFAAE00F9EF53 /* Utilities */,
-				F7206CFB228CEC6700F9EF53 /* AppDelegate.swift */,
 				F7206D09228CEC6900F9EF53 /* Info.plist */,
 			);
 			path = filmstarter;
@@ -107,6 +117,7 @@
 				F7206D21228D818600F9EF53 /* FSLabel.swift */,
 				F7206D10228CFABB00F9EF53 /* UniversalStyles.swift */,
 				F7206D19228D107700F9EF53 /* FSButton.swift */,
+				F7206CFB228CEC6700F9EF53 /* AppDelegate.swift */,
 				F7206D2B228D87F800F9EF53 /* FSInput.swift */,
 			);
 			path = Utilities;
@@ -129,8 +140,20 @@
 				F7206CFD228CEC6700F9EF53 /* FirstViewController.swift */,
 				F7206D14228D0A4400F9EF53 /* HomeViewController.swift */,
 				F7206CFF228CEC6700F9EF53 /* SecondViewController.swift */,
+				F7DFB4E02296DD8F00626FDD /* LoginViewController.swift */,
+				F7DFB4E82297DA2D00626FDD /* RegisterViewController.swift */,
 			);
 			path = Scenes;
+			sourceTree = "<group>";
+		};
+		F7DFB4D32296B0C300626FDD /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				F7DFB4DB2296B2A700626FDD /* MyriadPro-Bold.OTF */,
+				F7DFB4DC2296B2A700626FDD /* MyriadPro-Regular.OTF */,
+				F7DFB4DA2296B2A700626FDD /* MyriadPro-SemiBold.OTF */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,9 +216,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7DFB4DE2296B2AD00626FDD /* MyriadPro-Regular.OTF in Resources */,
 				F7206D18228D0D9E00F9EF53 /* logo.png in Resources */,
 				F7206D1E228D5CF400F9EF53 /* logo-white.png in Resources */,
+				F7DFB4DD2296B2AA00626FDD /* MyriadPro-Bold.OTF in Resources */,
 				F7206D08228CEC6900F9EF53 /* LaunchScreen.storyboard in Resources */,
+				F7DFB4DF2296B2B000626FDD /* MyriadPro-SemiBold.OTF in Resources */,
 				F7206D05228CEC6900F9EF53 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,6 +280,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7DFB4E12296DD8F00626FDD /* LoginViewController.swift in Sources */,
+				F7DFB4E92297DA2D00626FDD /* RegisterViewController.swift in Sources */,
 				F7206D15228D0A4400F9EF53 /* HomeViewController.swift in Sources */,
 				F7206D2C228D87F800F9EF53 /* FSInput.swift in Sources */,
 				F7206D00228CEC6700F9EF53 /* SecondViewController.swift in Sources */,

@@ -21,6 +21,7 @@ class FSButton : UIButton
         self.titleLabel!.font = UniversalStyles.Fonts.FSButtonLabel;
         calculateGradient(firstColor, secondColor);
         self.setTitleColor(UIColor(hex: titleColor), for: UIControl.State.normal);
+        self.titleLabel!.font = UIFont(name: "Helvetica-Bold", size: 22);
     }
     
     func calculateGradient(_ firstColor : String, _ secondColor : String)
