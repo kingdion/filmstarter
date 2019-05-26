@@ -136,7 +136,7 @@ class LoginViewController : FSBaseViewController
          to become the main source of navigation. Since we want
          custom views, we make the navigation bar invisible.
         */
-        let dashboardScreen = DashboardViewController();
+        let dashboardScreen = ButtonTabBarViewController();
         let navigationController = UINavigationController(rootViewController: dashboardScreen);
         
         navigationController.navigationBar.tintColor = UIColor.white;

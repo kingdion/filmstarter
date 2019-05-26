@@ -9,6 +9,19 @@
 import Foundation
 import UIKit
 
+/*
+    The core navigation of the film "projects". This is the main
+    functionality control of the app - allowing the user to
+    interact with functionalities on the project. Since the tab bar
+    is primarily at the user level, this dashboard is the entry to
+    the content side of things.
+
+    Setsup the basic menu boxes, their gradients, icons and presents
+    them in the display. The buttons themself simply direct the
+    application flow to the next controller.
+*/
+
+
 class DashboardViewController: FSBaseViewController {
     
     override func viewDidLoad()
@@ -42,7 +55,7 @@ class DashboardViewController: FSBaseViewController {
         scrollView!.addSubview(projectNameLabel);
         
         projectNameLabel.translatesAutoresizingMaskIntoConstraints = false;
-        projectNameLabel.topAnchor.constraint(equalTo: logo.bottomAnchor, constant: 50).isActive = true;
+        projectNameLabel.topAnchor.constraint(equalTo: logo.bottomAnchor, constant: 10).isActive = true;
         projectNameLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true;
         projectNameLabel.leadingAnchor.constraint(equalTo: scrollView!.leadingAnchor, constant: 15).isActive = true;
         

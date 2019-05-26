@@ -19,6 +19,9 @@
 		F7206D22228D818600F9EF53 /* FSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7206D21228D818600F9EF53 /* FSLabel.swift */; };
 		F7206D2C228D87F800F9EF53 /* FSInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7206D2B228D87F800F9EF53 /* FSInput.swift */; };
 		F7258E53229A6E7200B64465 /* HideKeyboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7258E52229A6E7200B64465 /* HideKeyboardExtension.swift */; };
+		F7258E55229A74F200B64465 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7258E54229A74F200B64465 /* ProfileViewController.swift */; };
+		F7258E57229A765100B64465 /* BottomTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7258E56229A765100B64465 /* BottomTabBarViewController.swift */; };
+		F7258E5B229A7B9400B64465 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7258E5A229A7B9400B64465 /* SettingsViewController.swift */; };
 		F7DFB4DD2296B2AA00626FDD /* MyriadPro-Bold.OTF in Resources */ = {isa = PBXBuildFile; fileRef = F7DFB4DB2296B2A700626FDD /* MyriadPro-Bold.OTF */; };
 		F7DFB4DE2296B2AD00626FDD /* MyriadPro-Regular.OTF in Resources */ = {isa = PBXBuildFile; fileRef = F7DFB4DC2296B2A700626FDD /* MyriadPro-Regular.OTF */; };
 		F7DFB4DF2296B2B000626FDD /* MyriadPro-SemiBold.OTF in Resources */ = {isa = PBXBuildFile; fileRef = F7DFB4DA2296B2A700626FDD /* MyriadPro-SemiBold.OTF */; };
@@ -27,11 +30,6 @@
 		F7DFB4EB2297DB5900626FDD /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DFB4EA2297DB5900626FDD /* DashboardViewController.swift */; };
 		F7DFB4EF2297E16200626FDD /* TeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DFB4EE2297E16200626FDD /* TeamViewController.swift */; };
 		F7DFB4F12297E54500626FDD /* FSBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DFB4F02297E54500626FDD /* FSBaseViewController.swift */; };
-		F7DFB5062298A9F700626FDD /* newspaper.png in Resources */ = {isa = PBXBuildFile; fileRef = F7DFB5012298A9F600626FDD /* newspaper.png */; };
-		F7DFB5072298A9F700626FDD /* paperclip.png in Resources */ = {isa = PBXBuildFile; fileRef = F7DFB5022298A9F600626FDD /* paperclip.png */; };
-		F7DFB5082298A9F700626FDD /* cogs.png in Resources */ = {isa = PBXBuildFile; fileRef = F7DFB5032298A9F700626FDD /* cogs.png */; };
-		F7DFB5092298A9F700626FDD /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = F7DFB5042298A9F700626FDD /* calendar.png */; };
-		F7DFB50A2298A9F700626FDD /* users.png in Resources */ = {isa = PBXBuildFile; fileRef = F7DFB5052298A9F700626FDD /* users.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +49,9 @@
 		F7206D21228D818600F9EF53 /* FSLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSLabel.swift; sourceTree = "<group>"; };
 		F7206D2B228D87F800F9EF53 /* FSInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSInput.swift; sourceTree = "<group>"; };
 		F7258E52229A6E7200B64465 /* HideKeyboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboardExtension.swift; sourceTree = "<group>"; };
+		F7258E54229A74F200B64465 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		F7258E56229A765100B64465 /* BottomTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTabBarViewController.swift; sourceTree = "<group>"; };
+		F7258E5A229A7B9400B64465 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		F7DFB4DA2296B2A700626FDD /* MyriadPro-SemiBold.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-SemiBold.OTF"; sourceTree = "<group>"; };
 		F7DFB4DB2296B2A700626FDD /* MyriadPro-Bold.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Bold.OTF"; sourceTree = "<group>"; };
 		F7DFB4DC2296B2A700626FDD /* MyriadPro-Regular.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Regular.OTF"; sourceTree = "<group>"; };
@@ -59,11 +60,6 @@
 		F7DFB4EA2297DB5900626FDD /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		F7DFB4EE2297E16200626FDD /* TeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamViewController.swift; sourceTree = "<group>"; };
 		F7DFB4F02297E54500626FDD /* FSBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSBaseViewController.swift; sourceTree = "<group>"; };
-		F7DFB5012298A9F600626FDD /* newspaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newspaper.png; sourceTree = "<group>"; };
-		F7DFB5022298A9F600626FDD /* paperclip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paperclip.png; sourceTree = "<group>"; };
-		F7DFB5032298A9F700626FDD /* cogs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cogs.png; sourceTree = "<group>"; };
-		F7DFB5042298A9F700626FDD /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar.png; sourceTree = "<group>"; };
-		F7DFB5052298A9F700626FDD /* users.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = users.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,7 +139,6 @@
 			children = (
 				F7DFB4D32296B0C300626FDD /* Fonts */,
 				F7258E4F229A598500B64465 /* Logos */,
-				F7DFB4F62298A17500626FDD /* Icons */,
 				F7206D04228CEC6900F9EF53 /* Assets.xcassets */,
 				F7206D06228CEC6900F9EF53 /* LaunchScreen.storyboard */,
 			);
@@ -167,6 +162,9 @@
 				F7DFB4E82297DA2D00626FDD /* RegisterViewController.swift */,
 				F7DFB4EA2297DB5900626FDD /* DashboardViewController.swift */,
 				F7DFB4EE2297E16200626FDD /* TeamViewController.swift */,
+				F7258E54229A74F200B64465 /* ProfileViewController.swift */,
+				F7258E56229A765100B64465 /* BottomTabBarViewController.swift */,
+				F7258E5A229A7B9400B64465 /* SettingsViewController.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -179,18 +177,6 @@
 				F7DFB4DA2296B2A700626FDD /* MyriadPro-SemiBold.OTF */,
 			);
 			path = Fonts;
-			sourceTree = "<group>";
-		};
-		F7DFB4F62298A17500626FDD /* Icons */ = {
-			isa = PBXGroup;
-			children = (
-				F7DFB5042298A9F700626FDD /* calendar.png */,
-				F7DFB5032298A9F700626FDD /* cogs.png */,
-				F7DFB5012298A9F600626FDD /* newspaper.png */,
-				F7DFB5022298A9F600626FDD /* paperclip.png */,
-				F7DFB5052298A9F700626FDD /* users.png */,
-			);
-			path = Icons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,17 +240,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7DFB4DE2296B2AD00626FDD /* MyriadPro-Regular.OTF in Resources */,
-				F7DFB5082298A9F700626FDD /* cogs.png in Resources */,
 				F7206D18228D0D9E00F9EF53 /* logo.png in Resources */,
 				F7206D1E228D5CF400F9EF53 /* logo-white.png in Resources */,
 				F7DFB4DD2296B2AA00626FDD /* MyriadPro-Bold.OTF in Resources */,
 				F7206D08228CEC6900F9EF53 /* LaunchScreen.storyboard in Resources */,
-				F7DFB50A2298A9F700626FDD /* users.png in Resources */,
-				F7DFB5062298A9F700626FDD /* newspaper.png in Resources */,
 				F7DFB4DF2296B2B000626FDD /* MyriadPro-SemiBold.OTF in Resources */,
 				F7206D05228CEC6900F9EF53 /* Assets.xcassets in Resources */,
-				F7DFB5072298A9F700626FDD /* paperclip.png in Resources */,
-				F7DFB5092298A9F700626FDD /* calendar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,12 +307,15 @@
 				F7DFB4F12297E54500626FDD /* FSBaseViewController.swift in Sources */,
 				F7258E53229A6E7200B64465 /* HideKeyboardExtension.swift in Sources */,
 				F7DFB4EB2297DB5900626FDD /* DashboardViewController.swift in Sources */,
+				F7258E57229A765100B64465 /* BottomTabBarViewController.swift in Sources */,
 				F7DFB4E92297DA2D00626FDD /* RegisterViewController.swift in Sources */,
 				F7206D15228D0A4400F9EF53 /* HomeViewController.swift in Sources */,
 				F7206D2C228D87F800F9EF53 /* FSInput.swift in Sources */,
+				F7258E5B229A7B9400B64465 /* SettingsViewController.swift in Sources */,
 				F7206D11228CFABB00F9EF53 /* UniversalStyles.swift in Sources */,
 				F7206D22228D818600F9EF53 /* FSLabel.swift in Sources */,
 				F7206CFC228CEC6700F9EF53 /* AppDelegate.swift in Sources */,
+				F7258E55229A74F200B64465 /* ProfileViewController.swift in Sources */,
 				F7206D1A228D107700F9EF53 /* FSButton.swift in Sources */,
 				F7DFB4EF2297E16200626FDD /* TeamViewController.swift in Sources */,
 			);
