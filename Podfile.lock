@@ -1,16 +1,20 @@
 PODS:
+  - Alamofire (5.0.0-beta.6)
   - Hue (4.0.0)
 
 DEPENDENCIES:
+  - Alamofire (~> 5.0.0-beta.5)
   - Hue
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
     - Hue
 
 SPEC CHECKSUMS:
+  Alamofire: cd08a4402bd12cacd0c66f23fb12fec8d6b965e4
   Hue: afe18b4e819e2848e7d2d5b4b33f4d3f88dd921b
 
-PODFILE CHECKSUM: 606ff175cf07a3605026f82dc7f5bd87b2b471f3
+PODFILE CHECKSUM: f684d363a72f5167997b7d2fd8dcdab41458c7c2
 
 COCOAPODS: 1.6.2
