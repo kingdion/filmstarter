@@ -9,4 +9,5 @@ target 'filmstarter' do
   pod 'Hue'
   pod 'Alamofire', '~> 4.0.0'
   pod 'SwiftyJSON', '~> 4.0'
+  pod 'IQKeyboardManagerSwift', '6.0.4'
 end

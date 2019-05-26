@@ -1,24 +1,28 @@
 PODS:
   - Alamofire (4.0.1)
   - Hue (5.0.0)
+  - IQKeyboardManagerSwift (6.0.4)
   - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0.0)
   - Hue
+  - IQKeyboardManagerSwift (= 6.0.4)
   - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - Hue
+    - IQKeyboardManagerSwift
     - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
   Hue: c129cb67be7d093a82bbbc30ce8a96757bf6f37a
+  IQKeyboardManagerSwift: 36dbe324b4f9793f5f41ba5227f3e7c76dfefd50
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: a310d3d16f5b466a8ce07b53a743ae6dfe4728f4
+PODFILE CHECKSUM: aed85777a2aa63598dc1bdeba27e4f1c0c461cad
 
 COCOAPODS: 1.6.2

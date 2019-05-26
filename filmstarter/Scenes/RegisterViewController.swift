@@ -8,10 +8,18 @@
 
 import Foundation
 import UIKit
+import Alamofire
+import SwiftyJSON
 
-class RegisterViewController : FSBaseViewController
+class RegisterViewController : FSBaseViewController, UITextFieldDelegate
 {
     var registerBox : UIView? = nil;
+    let registerButton = FSButton(frame: CGRect());
+    let firstNameInput = FSInput(frame: CGRect());
+    let lastNameInput = FSInput(frame: CGRect());
+    let emailInput = FSInput(frame: CGRect());
+    let usernameInput = FSInput(frame: CGRect());
+    let passwordInput = FSInput(frame: CGRect());
     
     override func viewDidLoad()
     {
@@ -20,6 +28,12 @@ class RegisterViewController : FSBaseViewController
         super.viewDidLoad();
         self.hideKeyboardWhenTappedAround();
         
+        firstNameInput.delegate = self;
+        lastNameInput.delegate = self;
+        emailInput.delegate = self;
+        usernameInput.delegate = self;
+        passwordInput.delegate = self;
+
         scrollView!.backgroundColor = UIColor.white;
         setupRegisterBox();
     }
@@ -81,8 +95,7 @@ class RegisterViewController : FSBaseViewController
         subTitle.leadingAnchor.constraint(equalTo: registerBox!.leadingAnchor, constant: 20).isActive = true;
         subTitle.trailingAnchor.constraint(equalTo: registerBox!.trailingAnchor, constant: -20).isActive = true;
         subTitle.centerXAnchor.constraint(equalTo: registerBox!.centerXAnchor).isActive = true;
-        
-        let firstNameInput = FSInput(frame: registerBox!.bounds);
+
         firstNameInput.placeholder = "First Name"
         firstNameInput.translatesAutoresizingMaskIntoConstraints = false;
         
@@ -94,7 +107,6 @@ class RegisterViewController : FSBaseViewController
         firstNameInput.heightAnchor.constraint(equalToConstant: 60).isActive = true;
         firstNameInput.centerXAnchor.constraint(equalTo: registerBox!.centerXAnchor).isActive = true;
         
-        let lastNameInput = FSInput(frame: registerBox!.bounds);
         lastNameInput.placeholder = "Last Name"
         lastNameInput.translatesAutoresizingMaskIntoConstraints = false;
         
@@ -106,7 +118,6 @@ class RegisterViewController : FSBaseViewController
         lastNameInput.heightAnchor.constraint(equalToConstant: 60).isActive = true;
         lastNameInput.centerXAnchor.constraint(equalTo: registerBox!.centerXAnchor).isActive = true;
 
-        let emailInput = FSInput(frame: registerBox!.bounds);
         emailInput.placeholder = "Email"
         emailInput.translatesAutoresizingMaskIntoConstraints = false;
         emailInput.keyboardType = .emailAddress;
@@ -118,8 +129,7 @@ class RegisterViewController : FSBaseViewController
         emailInput.trailingAnchor.constraint(equalTo: registerBox!.trailingAnchor, constant: -20).isActive = true;
         emailInput.heightAnchor.constraint(equalToConstant: 60).isActive = true;
         emailInput.centerXAnchor.constraint(equalTo: registerBox!.centerXAnchor).isActive = true;
-        
-        let usernameInput = FSInput(frame: registerBox!.bounds);
+
         usernameInput.placeholder = "Username"
         usernameInput.translatesAutoresizingMaskIntoConstraints = false;
         
@@ -131,7 +141,6 @@ class RegisterViewController : FSBaseViewController
         usernameInput.heightAnchor.constraint(equalToConstant: 60).isActive = true;
         usernameInput.centerXAnchor.constraint(equalTo: registerBox!.centerXAnchor).isActive = true;
         
-        let passwordInput = FSInput(frame: registerBox!.bounds);
         passwordInput.placeholder = "Password"
         passwordInput.translatesAutoresizingMaskIntoConstraints = false;
         passwordInput.isSecureTextEntry = true;
@@ -144,7 +153,6 @@ class RegisterViewController : FSBaseViewController
         passwordInput.heightAnchor.constraint(equalToConstant: 60).isActive = true;
         passwordInput.centerXAnchor.constraint(equalTo: registerBox!.centerXAnchor).isActive = true;
         
-        let registerButton = FSButton(frame: registerBox!.bounds);
         registerButton.setTitle("Register", for: UIControl.State.normal);
         registerButton.translatesAutoresizingMaskIntoConstraints = false;
         registerButton.titleColor = "#ffffff";
@@ -162,18 +170,107 @@ class RegisterViewController : FSBaseViewController
         registerButton.addTarget(self, action: #selector(registerButtonTap), for: .touchUpInside);
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool
-    {
-        return true;
-    }
-    
     @objc func closeRegisterButtonTap()
     {
         self.dismiss(animated: true, completion: nil);
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        /*
+             When the text input validates that it should return,
+             move focus to the next element.
+        */
+        switch textField
+        {
+            case firstNameInput:
+                lastNameInput.becomeFirstResponder();
+            case lastNameInput:
+                emailInput.becomeFirstResponder();
+            case emailInput:
+                usernameInput.becomeFirstResponder();
+            case usernameInput:
+                passwordInput.becomeFirstResponder();
+            default:
+                textField.resignFirstResponder();
+        }
+        
+        return true
+    }
+    
     @objc func registerButtonTap()
     {
-        self.dismiss(animated: true, completion: nil);
+        /*
+             Check that we have non-empty input data, start an
+             activity indicator as a loading mechanism and make
+             a request to our server with our register credentials.
+         
+             Decode the data using SwiftyJSON and show all errors
+             as a top-level UIAlert (either register credential errors
+             from the server or any others)
+         
+             On success, create & present the core application
+             controller to the authenticated user.
+        */
+        registerButton.isEnabled = false;
+        
+        let firstName = firstNameInput.text!;
+        let lastName = lastNameInput.text!;
+        let username = usernameInput.text!;
+        let password = passwordInput.text!;
+        let email = emailInput.text!;
+        
+        if (username == "" || password == "" || email == "" || firstName == "" || lastName == "")
+        {
+            AlertHelper.showError(on: self, message: "No fields can be blank!");
+        }
+        
+        let activityIndicator = UIActivityIndicatorView(style: .whiteLarge);
+        activityIndicator.color = UIColor.gray;
+        activityIndicator.hidesWhenStopped = true;
+        
+        registerBox!.addSubview(activityIndicator);
+        
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false;
+        activityIndicator.topAnchor.constraint(equalTo: registerButton.bottomAnchor, constant: 10).isActive = true;
+        activityIndicator.leadingAnchor.constraint(equalTo: registerBox!.leadingAnchor, constant: 20).isActive = true;
+        activityIndicator.trailingAnchor.constraint(equalTo: registerBox!.trailingAnchor, constant: -20).isActive = true;
+        activityIndicator.centerXAnchor.constraint(equalTo: registerBox!.centerXAnchor).isActive = true;
+        
+        activityIndicator.startAnimating();
+        
+        let parameters = ["first-name": firstName,
+                          "last-name": lastName,
+                          "username": username,
+                          "password": password,
+                          "email": email]
+        Alamofire.request("https://filmstarter.dionmisic.com/do-register",
+                          method: .post, parameters: parameters).responseJSON {
+                            response in
+                            
+                            activityIndicator.stopAnimating();
+                            self.registerButton.isEnabled = true;
+                            
+                            do
+                            {
+                                let json = try JSON(data: response.data!);
+                                
+                                if (json["success"].bool! == true)
+                                {
+                                    let dashboardScreen = ButtonTabBarViewController();
+                                    let navigationController = FSNavigationController(rootViewController: dashboardScreen);
+                                    
+                                    self.present(navigationController, animated: true);
+                                }
+                                else
+                                {
+                                    AlertHelper.showError(on: self, message: json["message"].string!);
+                                }
+                            }
+                            catch
+                            {
+                                AlertHelper.showError(on: self, message: error.localizedDescription);
+                            }
+        }
     }
 }

@@ -11,11 +11,12 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class LoginViewController : FSBaseViewController
+class LoginViewController : FSBaseViewController, UITextFieldDelegate
 {
     var loginBox : UIView? = nil;
     let usernameInput = FSInput(frame: CGRect());
     let passwordInput = FSInput(frame: CGRect());
+    let loginButton = FSButton(frame: CGRect());
     
     override func viewDidLoad()
     {
@@ -23,6 +24,9 @@ class LoginViewController : FSBaseViewController
         super.includeScrollView = true;
         super.viewDidLoad();
         self.hideKeyboardWhenTappedAround();
+        
+        usernameInput.delegate = self;
+        passwordInput.delegate = self;
         
         scrollView!.backgroundColor = UIColor.white;
         setupLoginBox()
@@ -109,7 +113,6 @@ class LoginViewController : FSBaseViewController
         passwordInput.heightAnchor.constraint(equalToConstant: 60).isActive = true;
         passwordInput.centerXAnchor.constraint(equalTo: loginBox!.centerXAnchor).isActive = true;
         
-        let loginButton = FSButton(frame: loginBox!.bounds);
         loginButton.setTitle("Login", for: UIControl.State.normal);
         loginButton.translatesAutoresizingMaskIntoConstraints = false;
         loginButton.titleColor = "#ffffff";
@@ -132,36 +135,68 @@ class LoginViewController : FSBaseViewController
         self.dismiss(animated: true, completion: nil);
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        /*
+             When the text input validates that it should return,
+             move focus to the next element.
+        */
+        switch textField
+        {
+            case usernameInput:
+                passwordInput.becomeFirstResponder();
+            default:
+                textField.resignFirstResponder();
+        }
+        
+        return true
+    }
+    
     @objc func loginButtonTap()
     {
         /*
-         On a successful login, create the navigation controller
-         to become the main source of navigation. Since we want
-         custom views, we make the navigation bar invisible.
+             Check that we have non-empty input data, start an
+             activity indicator as a loading mechanism and make
+             a request to our server with our login credentials.
+         
+             Decode the data using SwiftyJSON and show all errors
+             as a top-level UIAlert (either login credential errors
+             from the server or any others)
+         
+             On success, create & present the core application
+             controller to the authenticated user.
         */
+        loginButton.isEnabled = false;
+        
         let username = usernameInput.text!;
         let password = passwordInput.text!;
         
         if (username == "" || password == "")
         {
-            return
+            AlertHelper.showError(on: self, message: "Both fields can't be blank!");
         }
-        /*
-        let parameters = ["first-name": "dion",
-                          "last-name": "misic",
-                          "username": "kingdion",
-                          "password": "memelord",
-                          "email": "dion.misic@gmail.com"]
-        Alamofire.request("https://filmstarter.dionmisic.com/do-register",
-                          method: .post, parameters: parameters).responseJSON {
-                            response in
-                            print ("Hello", response)
-         }*/
+        
+        let activityIndicator = UIActivityIndicatorView(style: .whiteLarge);
+        activityIndicator.color = UIColor.gray;
+        activityIndicator.hidesWhenStopped = true;
+        
+        loginBox!.addSubview(activityIndicator);
+        
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false;
+        activityIndicator.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 10).isActive = true;
+        activityIndicator.leadingAnchor.constraint(equalTo: loginBox!.leadingAnchor, constant: 20).isActive = true;
+        activityIndicator.trailingAnchor.constraint(equalTo: loginBox!.trailingAnchor, constant: -20).isActive = true;
+        activityIndicator.centerXAnchor.constraint(equalTo: loginBox!.centerXAnchor).isActive = true;
+        
+        activityIndicator.startAnimating();
         
         let parameters = ["username": username, "password": password]
         Alamofire.request("https://filmstarter.dionmisic.com/do-login",
                           method: .post, parameters: parameters).responseJSON {
                             response in
+                            
+                            activityIndicator.stopAnimating();
+                            self.loginButton.isEnabled = true;
                             
                             do
                             {
@@ -169,14 +204,8 @@ class LoginViewController : FSBaseViewController
                                 
                                 if (json["success"].bool! == true)
                                 {
-                                    let dashboardScreen = ButtonTabBarViewController();
-                                    let navigationController = UINavigationController(rootViewController: dashboardScreen);
-
-                                    navigationController.navigationBar.tintColor = UIColor.white;
-                                    navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)
-                                    navigationController.navigationBar.shadowImage = UIImage()
-                                    navigationController.navigationBar.isTranslucent = true
-                                    navigationController.view.backgroundColor = .clear
+                                    let tabController = ButtonTabBarViewController();
+                                    let navigationController = FSNavigationController(rootViewController: tabController);
 
                                     self.present(navigationController, animated: true);
                                 }
