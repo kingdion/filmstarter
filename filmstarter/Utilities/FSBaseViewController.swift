@@ -33,15 +33,15 @@ class FSBaseViewController : UIViewController
         super.viewDidLoad();
         
         setupMainView();
-    
-        if (includeLogo)
-        {
-            setupMainLogo();
-        }
         
         if (includeScrollView)
         {
             setupScrollView();
+        }
+        
+        if (includeLogo)
+        {
+            setupMainLogo();
         }
     }
     
@@ -62,10 +62,10 @@ class FSBaseViewController : UIViewController
     {
         logo.translatesAutoresizingMaskIntoConstraints = false;
         
-        contentView!.addSubview(logo);
+        scrollView!.addSubview(logo);
         
-        logo.centerXAnchor.constraint(equalTo: contentView!.centerXAnchor).isActive = true;
-        logo.centerYAnchor.constraint(equalTo: contentView!.centerYAnchor, constant: -100).isActive = true;
+        logo.topAnchor.constraint(equalTo: scrollView!.topAnchor).isActive = true;
+        logo.leadingAnchor.constraint(equalTo: scrollView!.leadingAnchor, constant: 15).isActive = true;
         logo.heightAnchor.constraint(equalToConstant: 50).isActive = true;
         logo.widthAnchor.constraint(equalToConstant: 180).isActive = true;
     }
@@ -74,7 +74,6 @@ class FSBaseViewController : UIViewController
     {
         scrollView = UIScrollView(frame: contentView!.bounds);
         scrollView!.translatesAutoresizingMaskIntoConstraints = false;
-        scrollView!.backgroundColor = UIColor.white;
         
         contentView!.addSubview(scrollView!);
         

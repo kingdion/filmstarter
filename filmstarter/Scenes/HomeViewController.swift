@@ -22,12 +22,24 @@ class HomeViewController: FSBaseViewController {
     override func viewDidLoad()
     {
         setupBackground();
-        
-        super.includeLogo = true;
-        super.includeScrollView = false;
+
+        super.includeScrollView = true;
         super.viewDidLoad();
         
+        setupLogo();
         setupButtons();
+    }
+    
+    func setupLogo()
+    {
+        logo.translatesAutoresizingMaskIntoConstraints = false;
+        
+        scrollView!.addSubview(logo);
+        
+        logo.centerXAnchor.constraint(equalTo: scrollView!.centerXAnchor).isActive = true;
+        logo.centerYAnchor.constraint(equalTo: scrollView!.centerYAnchor, constant: -100).isActive = true;
+        logo.heightAnchor.constraint(equalToConstant: 50).isActive = true;
+        logo.widthAnchor.constraint(equalToConstant: 180).isActive = true;
     }
     
     func setupButtons()

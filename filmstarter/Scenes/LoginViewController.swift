@@ -24,6 +24,7 @@ class LoginViewController : FSBaseViewController
         super.viewDidLoad();
         self.hideKeyboardWhenTappedAround();
         
+        scrollView!.backgroundColor = UIColor.white;
         setupLoginBox()
     }
     

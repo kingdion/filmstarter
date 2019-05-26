@@ -18,9 +18,9 @@ class RegisterViewController : FSBaseViewController
         super.includeScrollView = true;
         super.includeLogo = false;
         super.viewDidLoad();
-        self.view.backgroundColor = UIColor.white;
         self.hideKeyboardWhenTappedAround();
         
+        scrollView!.backgroundColor = UIColor.white;
         setupRegisterBox();
     }
     

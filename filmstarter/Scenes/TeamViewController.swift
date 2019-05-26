@@ -12,9 +12,9 @@ import UIKit
 class TeamViewController : FSBaseViewController {
     override func viewDidLoad()
     {
-        super.includeLogo = true;
         super.includeScrollView = true;
+        super.includeLogo = true;
         super.viewDidLoad();
-        scrollView!.backgroundColor = UIColor.red;
+        self.view.backgroundColor = UIColor.red;
     }
 }

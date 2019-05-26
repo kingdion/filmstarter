@@ -26,8 +26,9 @@ class DashboardViewController: FSBaseViewController {
     
     override func viewDidLoad()
     {
-        super.includeLogo = false;
+        super.includeLogo = true;
         super.includeScrollView = true;
+        logo = UIImageView(image: UIImage(named: "logo.png"));
         super.viewDidLoad();
         
         self.view!.backgroundColor = UIColor.white;
@@ -37,16 +38,6 @@ class DashboardViewController: FSBaseViewController {
     
     func setupUserDetailsAndNavigation()
     {
-        logo = UIImageView(image: UIImage(named: "logo.png"));
-        logo.translatesAutoresizingMaskIntoConstraints = false;
-        
-        scrollView!.addSubview(logo);
-        
-        logo.topAnchor.constraint(equalTo: scrollView!.topAnchor).isActive = true;
-        logo.centerXAnchor.constraint(equalTo: scrollView!.centerXAnchor).isActive = true;
-        logo.heightAnchor.constraint(equalToConstant: 50).isActive = true;
-        logo.widthAnchor.constraint(equalToConstant: 180).isActive = true;
-        
         let projectNameLabel = FSLabel(frame: scrollView!.bounds);
         projectNameLabel.font = UIFont(name: "MyriadPro-Bold", size: 44);
         projectNameLabel.text = "Harry Potter";
