@@ -13,7 +13,7 @@ class FSBaseViewController : UIViewController
 {
     var contentView : UIView? = nil;
     var scrollView : UIScrollView? = nil;
-    let logo = UIImageView(image: UIImage(named: "logo-white.png"));
+    var logo = UIImageView(image: UIImage(named: "logo-white.png"));
     
     var includeLogo : Bool = false;
     var includeScrollView : Bool = false;

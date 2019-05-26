@@ -26,6 +26,11 @@
 		F7DFB4EB2297DB5900626FDD /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DFB4EA2297DB5900626FDD /* DashboardViewController.swift */; };
 		F7DFB4EF2297E16200626FDD /* TeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DFB4EE2297E16200626FDD /* TeamViewController.swift */; };
 		F7DFB4F12297E54500626FDD /* FSBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DFB4F02297E54500626FDD /* FSBaseViewController.swift */; };
+		F7DFB5062298A9F700626FDD /* newspaper.png in Resources */ = {isa = PBXBuildFile; fileRef = F7DFB5012298A9F600626FDD /* newspaper.png */; };
+		F7DFB5072298A9F700626FDD /* paperclip.png in Resources */ = {isa = PBXBuildFile; fileRef = F7DFB5022298A9F600626FDD /* paperclip.png */; };
+		F7DFB5082298A9F700626FDD /* cogs.png in Resources */ = {isa = PBXBuildFile; fileRef = F7DFB5032298A9F700626FDD /* cogs.png */; };
+		F7DFB5092298A9F700626FDD /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = F7DFB5042298A9F700626FDD /* calendar.png */; };
+		F7DFB50A2298A9F700626FDD /* users.png in Resources */ = {isa = PBXBuildFile; fileRef = F7DFB5052298A9F700626FDD /* users.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +57,11 @@
 		F7DFB4EA2297DB5900626FDD /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		F7DFB4EE2297E16200626FDD /* TeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamViewController.swift; sourceTree = "<group>"; };
 		F7DFB4F02297E54500626FDD /* FSBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSBaseViewController.swift; sourceTree = "<group>"; };
+		F7DFB5012298A9F600626FDD /* newspaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newspaper.png; sourceTree = "<group>"; };
+		F7DFB5022298A9F600626FDD /* paperclip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paperclip.png; sourceTree = "<group>"; };
+		F7DFB5032298A9F700626FDD /* cogs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cogs.png; sourceTree = "<group>"; };
+		F7DFB5042298A9F700626FDD /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar.png; sourceTree = "<group>"; };
+		F7DFB5052298A9F700626FDD /* users.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = users.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +138,7 @@
 		F7206D16228D0D8D00F9EF53 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				F7DFB4F62298A17500626FDD /* Icons */,
 				F7206D04228CEC6900F9EF53 /* Assets.xcassets */,
 				F7206D1D228D5CF400F9EF53 /* logo-white.png */,
 				F7206D06228CEC6900F9EF53 /* LaunchScreen.storyboard */,
@@ -157,6 +168,18 @@
 				F7DFB4DA2296B2A700626FDD /* MyriadPro-SemiBold.OTF */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		F7DFB4F62298A17500626FDD /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				F7DFB5042298A9F700626FDD /* calendar.png */,
+				F7DFB5032298A9F700626FDD /* cogs.png */,
+				F7DFB5012298A9F600626FDD /* newspaper.png */,
+				F7DFB5022298A9F600626FDD /* paperclip.png */,
+				F7DFB5052298A9F700626FDD /* users.png */,
+			);
+			path = Icons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,12 +243,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7DFB4DE2296B2AD00626FDD /* MyriadPro-Regular.OTF in Resources */,
+				F7DFB5082298A9F700626FDD /* cogs.png in Resources */,
 				F7206D18228D0D9E00F9EF53 /* logo.png in Resources */,
 				F7206D1E228D5CF400F9EF53 /* logo-white.png in Resources */,
 				F7DFB4DD2296B2AA00626FDD /* MyriadPro-Bold.OTF in Resources */,
 				F7206D08228CEC6900F9EF53 /* LaunchScreen.storyboard in Resources */,
+				F7DFB50A2298A9F700626FDD /* users.png in Resources */,
+				F7DFB5062298A9F700626FDD /* newspaper.png in Resources */,
 				F7DFB4DF2296B2B000626FDD /* MyriadPro-SemiBold.OTF in Resources */,
 				F7206D05228CEC6900F9EF53 /* Assets.xcassets in Resources */,
+				F7DFB5072298A9F700626FDD /* paperclip.png in Resources */,
+				F7DFB5092298A9F700626FDD /* calendar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,17 +9,19 @@
 import Foundation
 import UIKit
 
-@IBDesignable
 class FSButton : UIButton
 {
-    @IBInspectable var firstColor : String = "#ffffff";
-    @IBInspectable var secondColor : String = "#ffffff";
-    @IBInspectable var titleColor : String = "#000000";
+    var firstColor : String = "#ffffff";
+    var secondColor : String = "#ffffff";
+    var titleColor : String = "#000000";
+    var cornerRadius : CGFloat = 50.0;
+    var cornerMask : CACornerMask? = nil;
     
     override func draw(_ rect: CGRect)
     {
         self.titleLabel!.font = UniversalStyles.Fonts.FSButtonLabel;
         calculateGradient(firstColor, secondColor);
+        
         self.setTitleColor(UIColor(hex: titleColor), for: UIControl.State.normal);
         self.titleLabel!.font = UIFont(name: "Helvetica-Bold", size: 22);
     }
@@ -39,6 +41,12 @@ class FSButton : UIButton
         backgroundGradient.frame = self.bounds;
         backgroundGradient.cornerRadius = 25.0;
         self.layer.insertSublayer(backgroundGradient, at: 0);
-        self.layer.cornerRadius = 50.0;
+        self.layer.cornerRadius = cornerRadius;
+        
+        if (cornerMask != nil)
+        {
+            backgroundGradient.maskedCorners = cornerMask!
+            self.layer.maskedCorners = cornerMask!
+        }
     }
 }

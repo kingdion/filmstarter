@@ -56,9 +56,9 @@ class RegisterViewController : FSBaseViewController
         closeButton.addTarget(self, action: #selector(closeLoginButtonTap), for: .touchUpInside);
         
         let label = FSLabel(frame: loginBox!.bounds);
-        label.kerning = -1.75;
         label.font = UIFont(name: "MyriadPro-Bold", size: 42);
         label.text = "Log In.";
+        label.kerning = -1.75;
         
         loginBox!.addSubview(label);
         
@@ -68,7 +68,6 @@ class RegisterViewController : FSBaseViewController
         label.leadingAnchor.constraint(equalTo: loginBox!.leadingAnchor, constant: 20).isActive = true;
         
         let subTitle = FSLabel(frame: loginBox!.bounds);
-        subTitle.kerning = -0.5;
         subTitle.textColor = UIColor.lightGray;
         subTitle.font = UIFont(name: "MyriadPro-Regular", size: 16);
         subTitle.text = "Your account details are securely stored.";

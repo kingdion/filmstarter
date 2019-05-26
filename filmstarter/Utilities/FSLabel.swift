@@ -9,12 +9,10 @@
 import Foundation
 import UIKit
 
-@IBDesignable
 class FSLabel : UILabel {
     // Extension pulled from this solution to add kerning to UILabels, modified for my purposes.
     // https://stackoverflow.com/questions/27535901/ios-8-change-character-spacing-on-uilabel-within-interface-builder
     
-    @IBInspectable
     var kerning : Double = 0.0
     {
         didSet
