@@ -9,9 +9,12 @@
 import Foundation
 import UIKit
 
-class TeamViewController : UIViewController {
+class TeamViewController : FSBaseViewController {
     override func viewDidLoad()
     {
+        super.includeLogo = true;
+        super.includeScrollView = true;
         super.viewDidLoad();
+        scrollView!.backgroundColor = UIColor.red;
     }
 }

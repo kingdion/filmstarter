@@ -28,13 +28,12 @@ class FSBaseViewController : UIViewController
     var includeLogo : Bool = false;
     var includeScrollView : Bool = false;
     
-    
     override func viewDidLoad()
     {
         super.viewDidLoad();
         
         setupMainView();
-        
+    
         if (includeLogo)
         {
             setupMainLogo();

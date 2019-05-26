@@ -1,20 +1,24 @@
 PODS:
-  - Alamofire (5.0.0-beta.6)
-  - Hue (4.0.0)
+  - Alamofire (4.0.1)
+  - Hue (5.0.0)
+  - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
-  - Alamofire (~> 5.0.0-beta.5)
+  - Alamofire (~> 4.0.0)
   - Hue
+  - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - Hue
+    - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Alamofire: cd08a4402bd12cacd0c66f23fb12fec8d6b965e4
-  Hue: afe18b4e819e2848e7d2d5b4b33f4d3f88dd921b
+  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  Hue: c129cb67be7d093a82bbbc30ce8a96757bf6f37a
+  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: f684d363a72f5167997b7d2fd8dcdab41458c7c2
+PODFILE CHECKSUM: a310d3d16f5b466a8ce07b53a743ae6dfe4728f4
 
 COCOAPODS: 1.6.2

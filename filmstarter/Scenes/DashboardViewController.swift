@@ -42,8 +42,8 @@ class DashboardViewController: FSBaseViewController {
         
         scrollView!.addSubview(logo);
         
-        logo.topAnchor.constraint(equalTo: scrollView!.topAnchor, constant: 15).isActive = true;
-        logo.leadingAnchor.constraint(equalTo: scrollView!.leadingAnchor, constant: 15).isActive = true;
+        logo.topAnchor.constraint(equalTo: scrollView!.topAnchor).isActive = true;
+        logo.centerXAnchor.constraint(equalTo: scrollView!.centerXAnchor).isActive = true;
         logo.heightAnchor.constraint(equalToConstant: 50).isActive = true;
         logo.widthAnchor.constraint(equalToConstant: 180).isActive = true;
         
@@ -148,6 +148,7 @@ class DashboardViewController: FSBaseViewController {
         teamButton.setImage(UIImage(named: "calendar.png"), for: .normal)
         teamButton.imageView?.contentMode = .scaleToFill;
         teamButton.imageEdgeInsets = imageEdgeInset;
+        teamButton.addTarget(self, action: #selector(openTeamView), for: .touchUpInside);
         
         teamButton.topAnchor.constraint(equalTo: horizontalLine.bottomAnchor, constant: 15).isActive = true;
         teamButton.leadingAnchor.constraint(equalTo: homeButton.trailingAnchor).isActive = true;
@@ -200,5 +201,11 @@ class DashboardViewController: FSBaseViewController {
         scrollViewAnchor.bottomAnchor.constraint(equalTo: scrollView!.bottomAnchor).isActive = true;
         scrollViewAnchor.heightAnchor.constraint(equalToConstant: 50).isActive = true;
         scrollViewAnchor.leadingAnchor.constraint(equalTo: scrollView!.leadingAnchor, constant: 15).isActive = true;
+    }
+    
+    @objc func openTeamView()
+    {
+        var teamView = TeamViewController();
+        navigationController?.pushViewController(teamView, animated: true);
     }
 }

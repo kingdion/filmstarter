@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Alamofire
 
 /*
      The base view controller of the program - the first entry point.

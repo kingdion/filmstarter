@@ -8,10 +8,14 @@
 
 import Foundation
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class LoginViewController : FSBaseViewController
 {
     var loginBox : UIView? = nil;
+    let usernameInput = FSInput(frame: CGRect());
+    let passwordInput = FSInput(frame: CGRect());
     
     override func viewDidLoad()
     {
@@ -81,7 +85,6 @@ class LoginViewController : FSBaseViewController
         subTitle.trailingAnchor.constraint(equalTo: loginBox!.trailingAnchor, constant: -20).isActive = true;
         subTitle.centerXAnchor.constraint(equalTo: loginBox!.centerXAnchor).isActive = true;
         
-        let usernameInput = FSInput(frame: loginBox!.bounds);
         usernameInput.placeholder = "Username"
         usernameInput.translatesAutoresizingMaskIntoConstraints = false;
         
@@ -93,7 +96,6 @@ class LoginViewController : FSBaseViewController
         usernameInput.heightAnchor.constraint(equalToConstant: 60).isActive = true;
         usernameInput.centerXAnchor.constraint(equalTo: loginBox!.centerXAnchor).isActive = true;
         
-        let passwordInput = FSInput(frame: loginBox!.bounds);
         passwordInput.placeholder = "Password"
         passwordInput.translatesAutoresizingMaskIntoConstraints = false;
         passwordInput.isSecureTextEntry = true;
@@ -136,15 +138,56 @@ class LoginViewController : FSBaseViewController
          to become the main source of navigation. Since we want
          custom views, we make the navigation bar invisible.
         */
-        let dashboardScreen = ButtonTabBarViewController();
-        let navigationController = UINavigationController(rootViewController: dashboardScreen);
+        let username = usernameInput.text!;
+        let password = passwordInput.text!;
         
-        navigationController.navigationBar.tintColor = UIColor.white;
-        navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController.navigationBar.shadowImage = UIImage()
-        navigationController.navigationBar.isTranslucent = true
-        navigationController.view.backgroundColor = .clear
+        if (username == "" || password == "")
+        {
+            return
+        }
+        /*
+        let parameters = ["first-name": "dion",
+                          "last-name": "misic",
+                          "username": "kingdion",
+                          "password": "memelord",
+                          "email": "dion.misic@gmail.com"]
+        Alamofire.request("https://filmstarter.dionmisic.com/do-register",
+                          method: .post, parameters: parameters).responseJSON {
+                            response in
+                            print ("Hello", response)
+         }*/
         
-        self.present(navigationController, animated: true);
+        let parameters = ["username": username, "password": password]
+        Alamofire.request("https://filmstarter.dionmisic.com/do-login",
+                          method: .post, parameters: parameters).responseJSON {
+                            response in
+                            
+                            do
+                            {
+                                let json = try JSON(data: response.data!);
+                                
+                                if (json["success"].bool! == true)
+                                {
+                                    let dashboardScreen = ButtonTabBarViewController();
+                                    let navigationController = UINavigationController(rootViewController: dashboardScreen);
+
+                                    navigationController.navigationBar.tintColor = UIColor.white;
+                                    navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)
+                                    navigationController.navigationBar.shadowImage = UIImage()
+                                    navigationController.navigationBar.isTranslucent = true
+                                    navigationController.view.backgroundColor = .clear
+
+                                    self.present(navigationController, animated: true);
+                                }
+                                else
+                                {
+                                    AlertHelper.showError(on: self, message: json["message"].string!);
+                                }
+                            }
+                            catch
+                            {
+                                AlertHelper.showError(on: self, message: error.localizedDescription);
+                            }
+        }
     }
 }
