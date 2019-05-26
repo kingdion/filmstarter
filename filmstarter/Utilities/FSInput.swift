@@ -42,5 +42,9 @@ class FSInput : UITextField
         self.textColor = UIColor.darkGray;
         self.layer.backgroundColor = UIColor(hex: "#eeeeee").cgColor;
         self.layer.cornerRadius = 10.0;
+        
+        self.autocorrectionType = .no;
+        self.autocapitalizationType = .none;
+        self.clearButtonMode = .always;
     }
 }

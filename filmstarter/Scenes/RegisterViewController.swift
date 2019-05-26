@@ -19,6 +19,7 @@ class RegisterViewController : FSBaseViewController
         super.includeLogo = false;
         super.viewDidLoad();
         self.view.backgroundColor = UIColor.white;
+        self.hideKeyboardWhenTappedAround();
         
         setupRegisterBox();
     }
@@ -53,7 +54,7 @@ class RegisterViewController : FSBaseViewController
         closeButton.heightAnchor.constraint(equalToConstant: 50).isActive = true;
         closeButton.widthAnchor.constraint(equalToConstant: 50).isActive = true;
         closeButton.centerXAnchor.constraint(equalTo: registerBox!.centerXAnchor).isActive = true;
-        closeButton.addTarget(self, action: #selector(closeLoginButtonTap), for: .touchUpInside);
+        closeButton.addTarget(self, action: #selector(closeRegisterButtonTap), for: .touchUpInside);
         
         let label = FSLabel(frame: registerBox!.bounds);
         label.font = UIFont(name: "MyriadPro-Bold", size: 42);
@@ -70,7 +71,7 @@ class RegisterViewController : FSBaseViewController
         let subTitle = FSLabel(frame: registerBox!.bounds);
         subTitle.textColor = UIColor.lightGray;
         subTitle.font = UIFont(name: "MyriadPro-Regular", size: 16);
-        subTitle.text = "Your account details are securely stored.";
+        subTitle.text = "Your account details will be encrypted and sent to the cloud.";
         subTitle.numberOfLines = 0;
         
         registerBox!.addSubview(subTitle);
@@ -81,15 +82,50 @@ class RegisterViewController : FSBaseViewController
         subTitle.trailingAnchor.constraint(equalTo: registerBox!.trailingAnchor, constant: -20).isActive = true;
         subTitle.centerXAnchor.constraint(equalTo: registerBox!.centerXAnchor).isActive = true;
         
+        let firstNameInput = FSInput(frame: registerBox!.bounds);
+        firstNameInput.placeholder = "First Name"
+        firstNameInput.translatesAutoresizingMaskIntoConstraints = false;
+        
+        registerBox!.addSubview(firstNameInput);
+        
+        firstNameInput.topAnchor.constraint(equalTo: subTitle.bottomAnchor, constant: 20).isActive = true;
+        firstNameInput.leadingAnchor.constraint(equalTo: registerBox!.leadingAnchor, constant: 20).isActive = true;
+        firstNameInput.trailingAnchor.constraint(equalTo: registerBox!.trailingAnchor, constant: -20).isActive = true;
+        firstNameInput.heightAnchor.constraint(equalToConstant: 60).isActive = true;
+        firstNameInput.centerXAnchor.constraint(equalTo: registerBox!.centerXAnchor).isActive = true;
+        
+        let lastNameInput = FSInput(frame: registerBox!.bounds);
+        lastNameInput.placeholder = "Last Name"
+        lastNameInput.translatesAutoresizingMaskIntoConstraints = false;
+        
+        registerBox!.addSubview(lastNameInput);
+        
+        lastNameInput.topAnchor.constraint(equalTo: firstNameInput.bottomAnchor, constant: 10).isActive = true;
+        lastNameInput.leadingAnchor.constraint(equalTo: registerBox!.leadingAnchor, constant: 20).isActive = true;
+        lastNameInput.trailingAnchor.constraint(equalTo: registerBox!.trailingAnchor, constant: -20).isActive = true;
+        lastNameInput.heightAnchor.constraint(equalToConstant: 60).isActive = true;
+        lastNameInput.centerXAnchor.constraint(equalTo: registerBox!.centerXAnchor).isActive = true;
+
+        let emailInput = FSInput(frame: registerBox!.bounds);
+        emailInput.placeholder = "Email"
+        emailInput.translatesAutoresizingMaskIntoConstraints = false;
+        emailInput.keyboardType = .emailAddress;
+        
+        registerBox!.addSubview(emailInput);
+        
+        emailInput.topAnchor.constraint(equalTo: lastNameInput.bottomAnchor, constant: 10).isActive = true;
+        emailInput.leadingAnchor.constraint(equalTo: registerBox!.leadingAnchor, constant: 20).isActive = true;
+        emailInput.trailingAnchor.constraint(equalTo: registerBox!.trailingAnchor, constant: -20).isActive = true;
+        emailInput.heightAnchor.constraint(equalToConstant: 60).isActive = true;
+        emailInput.centerXAnchor.constraint(equalTo: registerBox!.centerXAnchor).isActive = true;
+        
         let usernameInput = FSInput(frame: registerBox!.bounds);
         usernameInput.placeholder = "Username"
         usernameInput.translatesAutoresizingMaskIntoConstraints = false;
-        usernameInput.autocorrectionType = .no;
-        usernameInput.autocapitalizationType = .none;
         
         registerBox!.addSubview(usernameInput);
         
-        usernameInput.topAnchor.constraint(equalTo: subTitle.bottomAnchor, constant: 20).isActive = true;
+        usernameInput.topAnchor.constraint(equalTo: emailInput.bottomAnchor, constant: 10).isActive = true;
         usernameInput.leadingAnchor.constraint(equalTo: registerBox!.leadingAnchor, constant: 20).isActive = true;
         usernameInput.trailingAnchor.constraint(equalTo: registerBox!.trailingAnchor, constant: -20).isActive = true;
         usernameInput.heightAnchor.constraint(equalToConstant: 60).isActive = true;
@@ -98,8 +134,6 @@ class RegisterViewController : FSBaseViewController
         let passwordInput = FSInput(frame: registerBox!.bounds);
         passwordInput.placeholder = "Password"
         passwordInput.translatesAutoresizingMaskIntoConstraints = false;
-        passwordInput.autocorrectionType = .no;
-        passwordInput.autocapitalizationType = .none;
         passwordInput.isSecureTextEntry = true;
         
         registerBox!.addSubview(passwordInput);
@@ -110,30 +144,35 @@ class RegisterViewController : FSBaseViewController
         passwordInput.heightAnchor.constraint(equalToConstant: 60).isActive = true;
         passwordInput.centerXAnchor.constraint(equalTo: registerBox!.centerXAnchor).isActive = true;
         
-        let loginButton = FSButton(frame: registerBox!.bounds);
-        loginButton.setTitle("Login", for: UIControl.State.normal);
-        loginButton.translatesAutoresizingMaskIntoConstraints = false;
-        loginButton.titleColor = "#ffffff";
-        loginButton.firstColor = "#f1407e";
-        loginButton.secondColor = "#f2693c";
+        let registerButton = FSButton(frame: registerBox!.bounds);
+        registerButton.setTitle("Register", for: UIControl.State.normal);
+        registerButton.translatesAutoresizingMaskIntoConstraints = false;
+        registerButton.titleColor = "#ffffff";
+        registerButton.firstColor = "#f1407e";
+        registerButton.secondColor = "#f2693c";
         
-        registerBox!.addSubview(loginButton);
+        registerBox!.addSubview(registerButton);
         
-        loginButton.topAnchor.constraint(greaterThanOrEqualTo: passwordInput.bottomAnchor, constant: 10).isActive = true;
-        loginButton.leadingAnchor.constraint(equalTo: registerBox!.leadingAnchor, constant: 20).isActive = true;
-        loginButton.trailingAnchor.constraint(equalTo: registerBox!.trailingAnchor, constant: -20).isActive = true;
-        loginButton.heightAnchor.constraint(equalToConstant: 60).isActive = true;
-        loginButton.centerXAnchor.constraint(equalTo: registerBox!.centerXAnchor).isActive = true;
-        loginButton.bottomAnchor.constraint(equalTo: registerBox!.bottomAnchor, constant: -30).isActive = true;
-        loginButton.addTarget(self, action: #selector(loginButtonTap), for: .touchUpInside);
+        registerButton.topAnchor.constraint(greaterThanOrEqualTo: passwordInput.bottomAnchor, constant: 15).isActive = true;
+        registerButton.leadingAnchor.constraint(equalTo: registerBox!.leadingAnchor, constant: 20).isActive = true;
+        registerButton.trailingAnchor.constraint(equalTo: registerBox!.trailingAnchor, constant: -20).isActive = true;
+        registerButton.heightAnchor.constraint(equalToConstant: 60).isActive = true;
+        registerButton.centerXAnchor.constraint(equalTo: registerBox!.centerXAnchor).isActive = true;
+        registerButton.bottomAnchor.constraint(equalTo: registerBox!.bottomAnchor, constant: -30).isActive = true;
+        registerButton.addTarget(self, action: #selector(registerButtonTap), for: .touchUpInside);
     }
     
-    @objc func closeLoginButtonTap()
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        return true;
+    }
+    
+    @objc func closeRegisterButtonTap()
     {
         self.dismiss(animated: true, completion: nil);
     }
     
-    @objc func loginButtonTap()
+    @objc func registerButtonTap()
     {
         self.dismiss(animated: true, completion: nil);
     }

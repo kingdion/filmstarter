@@ -80,7 +80,7 @@ class DashboardViewController: FSBaseViewController {
         */
         let safeWidth = (self.scrollView!.frame.width - 30)
         let squareLength = safeWidth / 2;
-        let imageInset = squareLength / 6;
+        let imageInset = squareLength / 4;
         let imageEdgeInset = UIEdgeInsets(top: imageInset, left: imageInset, bottom: imageInset, right: imageInset);
         
         let homeButton = FSButton(frame: CGRect(x: 0, y: 0, width: squareLength, height: squareLength));
@@ -117,7 +117,7 @@ class DashboardViewController: FSBaseViewController {
         settingsButton.cornerMask = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         settingsButton.titleColor = "#ffffff";
         settingsButton.firstColor = "#696969";
-        settingsButton.secondColor = "#696969";
+        settingsButton.secondColor = "#2d2d2d";
         
         scrollView!.addSubview(homeButton);
         
@@ -169,9 +169,9 @@ class DashboardViewController: FSBaseViewController {
         settingsButton.setImage(UIImage(named: "cogs.png"), for: .normal)
         settingsButton.imageView?.contentMode = .scaleToFill;
         settingsButton.imageEdgeInsets = UIEdgeInsets(top: imageInset,
-                                                      left: imageInset * 4,
+                                                      left: imageInset * 5,
                                                       bottom: imageInset,
-                                                      right: imageInset * 4);
+                                                      right: imageInset * 5);
         
         settingsButton.topAnchor.constraint(equalTo: resourcesButton.bottomAnchor).isActive = true;
         settingsButton.trailingAnchor.constraint(equalTo: scrollView!.trailingAnchor, constant: -15).isActive = true;

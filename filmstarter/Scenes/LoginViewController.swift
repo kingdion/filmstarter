@@ -18,6 +18,7 @@ class LoginViewController : FSBaseViewController
         super.includeLogo = false;
         super.includeScrollView = true;
         super.viewDidLoad();
+        self.hideKeyboardWhenTappedAround();
         
         setupLoginBox()
     }
@@ -83,8 +84,6 @@ class LoginViewController : FSBaseViewController
         let usernameInput = FSInput(frame: loginBox!.bounds);
         usernameInput.placeholder = "Username"
         usernameInput.translatesAutoresizingMaskIntoConstraints = false;
-        usernameInput.autocorrectionType = .no;
-        usernameInput.autocapitalizationType = .none;
         
         loginBox!.addSubview(usernameInput);
         
@@ -97,8 +96,6 @@ class LoginViewController : FSBaseViewController
         let passwordInput = FSInput(frame: loginBox!.bounds);
         passwordInput.placeholder = "Password"
         passwordInput.translatesAutoresizingMaskIntoConstraints = false;
-        passwordInput.autocorrectionType = .no;
-        passwordInput.autocapitalizationType = .none;
         passwordInput.isSecureTextEntry = true;
         
         loginBox!.addSubview(passwordInput);

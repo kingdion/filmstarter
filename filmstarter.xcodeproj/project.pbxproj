@@ -18,6 +18,7 @@
 		F7206D1E228D5CF400F9EF53 /* logo-white.png in Resources */ = {isa = PBXBuildFile; fileRef = F7206D1D228D5CF400F9EF53 /* logo-white.png */; };
 		F7206D22228D818600F9EF53 /* FSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7206D21228D818600F9EF53 /* FSLabel.swift */; };
 		F7206D2C228D87F800F9EF53 /* FSInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7206D2B228D87F800F9EF53 /* FSInput.swift */; };
+		F7258E53229A6E7200B64465 /* HideKeyboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7258E52229A6E7200B64465 /* HideKeyboardExtension.swift */; };
 		F7DFB4DD2296B2AA00626FDD /* MyriadPro-Bold.OTF in Resources */ = {isa = PBXBuildFile; fileRef = F7DFB4DB2296B2A700626FDD /* MyriadPro-Bold.OTF */; };
 		F7DFB4DE2296B2AD00626FDD /* MyriadPro-Regular.OTF in Resources */ = {isa = PBXBuildFile; fileRef = F7DFB4DC2296B2A700626FDD /* MyriadPro-Regular.OTF */; };
 		F7DFB4DF2296B2B000626FDD /* MyriadPro-SemiBold.OTF in Resources */ = {isa = PBXBuildFile; fileRef = F7DFB4DA2296B2A700626FDD /* MyriadPro-SemiBold.OTF */; };
@@ -49,6 +50,7 @@
 		F7206D1D228D5CF400F9EF53 /* logo-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-white.png"; sourceTree = "<group>"; };
 		F7206D21228D818600F9EF53 /* FSLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSLabel.swift; sourceTree = "<group>"; };
 		F7206D2B228D87F800F9EF53 /* FSInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSInput.swift; sourceTree = "<group>"; };
+		F7258E52229A6E7200B64465 /* HideKeyboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboardExtension.swift; sourceTree = "<group>"; };
 		F7DFB4DA2296B2A700626FDD /* MyriadPro-SemiBold.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-SemiBold.OTF"; sourceTree = "<group>"; };
 		F7DFB4DB2296B2A700626FDD /* MyriadPro-Bold.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Bold.OTF"; sourceTree = "<group>"; };
 		F7DFB4DC2296B2A700626FDD /* MyriadPro-Regular.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Regular.OTF"; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				F7206D10228CFABB00F9EF53 /* UniversalStyles.swift */,
 				F7206D19228D107700F9EF53 /* FSButton.swift */,
 				F7206D2B228D87F800F9EF53 /* FSInput.swift */,
+				F7258E52229A6E7200B64465 /* HideKeyboardExtension.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 			files = (
 				F7DFB4E12296DD8F00626FDD /* LoginViewController.swift in Sources */,
 				F7DFB4F12297E54500626FDD /* FSBaseViewController.swift in Sources */,
+				F7258E53229A6E7200B64465 /* HideKeyboardExtension.swift in Sources */,
 				F7DFB4EB2297DB5900626FDD /* DashboardViewController.swift in Sources */,
 				F7DFB4E92297DA2D00626FDD /* RegisterViewController.swift in Sources */,
 				F7206D15228D0A4400F9EF53 /* HomeViewController.swift in Sources */,
