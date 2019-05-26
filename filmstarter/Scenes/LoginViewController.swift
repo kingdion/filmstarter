@@ -134,6 +134,11 @@ class LoginViewController : FSBaseViewController
     
     @objc func loginButtonTap()
     {
+        /*
+         On a successful login, create the navigation controller
+         to become the main source of navigation. Since we want
+         custom views, we make the navigation bar invisible.
+        */
         let dashboardScreen = DashboardViewController();
         let navigationController = UINavigationController(rootViewController: dashboardScreen);
         

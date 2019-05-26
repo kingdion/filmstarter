@@ -9,6 +9,12 @@
 import Foundation
 import UIKit
 
+/*
+    A wrapper over the UIButton class to bring
+    easy-to-use gradient functionality and an interface
+    for creating rounded corners.
+*/
+
 class FSButton : UIButton
 {
     var firstColor : String = "#ffffff";
@@ -23,13 +29,15 @@ class FSButton : UIButton
         calculateGradient(firstColor, secondColor);
         
         self.setTitleColor(UIColor(hex: titleColor), for: UIControl.State.normal);
-        self.titleLabel!.font = UIFont(name: "Helvetica-Bold", size: 22);
+        self.titleLabel!.font = UniversalStyles.Fonts.FSButtonLabel;
     }
     
     func calculateGradient(_ firstColor : String, _ secondColor : String)
     {
-        var backgroundGradient : CAGradientLayer;
+        // Using the Hue library to create a gradient and
+        // attach it to the button background
         
+        var backgroundGradient : CAGradientLayer;
         backgroundGradient = [UIColor(hex: firstColor), UIColor(hex: secondColor)].gradient
         {
             gradient in

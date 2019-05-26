@@ -19,10 +19,10 @@ class DashboardViewController: FSBaseViewController {
         
         self.view!.backgroundColor = UIColor.white;
         
-        setupUserDetails();
+        setupUserDetailsAndNavigation();
     }
     
-    func setupUserDetails()
+    func setupUserDetailsAndNavigation()
     {
         logo = UIImageView(image: UIImage(named: "logo.png"));
         logo.translatesAutoresizingMaskIntoConstraints = false;
@@ -70,6 +70,14 @@ class DashboardViewController: FSBaseViewController {
         horizontalLine.widthAnchor.constraint(equalToConstant: self.view.frame.width / 1.5).isActive = true;
         horizontalLine.leadingAnchor.constraint(equalTo: scrollView!.leadingAnchor, constant: 15).isActive = true;
 
+        /*
+         Since we are insetting all of the views to be 15pixels from
+         each of the edges, we calculate our safe width to account for that.
+         
+         We also create an image inset that's 1/6th of the screen size to push the
+         icons into the middle of the button and have ample padding around
+         the side of the icon.
+        */
         let safeWidth = (self.scrollView!.frame.width - 30)
         let squareLength = safeWidth / 2;
         let imageInset = squareLength / 6;

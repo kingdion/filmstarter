@@ -9,6 +9,12 @@
 import Foundation
 import UIKit
 
+/*
+    A convenience wrapper to add kerning to typography
+    of UI labels because Apple unfortunately doesn't provide this
+    out of the box.
+*/
+
 class FSLabel : UILabel {
     // Extension pulled from this solution to add kerning to UILabels, modified for my purposes.
     // https://stackoverflow.com/questions/27535901/ios-8-change-character-spacing-on-uilabel-within-interface-builder

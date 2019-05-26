@@ -114,11 +114,11 @@
 		F7206CFA228CEC6700F9EF53 /* filmstarter */ = {
 			isa = PBXGroup;
 			children = (
-				F7DFB4D32296B0C300626FDD /* Fonts */,
 				F7878AE3228EEAC900BD20A1 /* Scenes */,
 				F7206D16228D0D8D00F9EF53 /* Assets */,
 				F7206D0F228CFAAE00F9EF53 /* Utilities */,
 				F7206D09228CEC6900F9EF53 /* Info.plist */,
+				F7206CFB228CEC6700F9EF53 /* AppDelegate.swift */,
 			);
 			path = filmstarter;
 			sourceTree = "<group>";
@@ -126,10 +126,10 @@
 		F7206D0F228CFAAE00F9EF53 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				F7DFB4F02297E54500626FDD /* FSBaseViewController.swift */,
 				F7206D21228D818600F9EF53 /* FSLabel.swift */,
 				F7206D10228CFABB00F9EF53 /* UniversalStyles.swift */,
 				F7206D19228D107700F9EF53 /* FSButton.swift */,
-				F7206CFB228CEC6700F9EF53 /* AppDelegate.swift */,
 				F7206D2B228D87F800F9EF53 /* FSInput.swift */,
 			);
 			path = Utilities;
@@ -138,13 +138,22 @@
 		F7206D16228D0D8D00F9EF53 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				F7DFB4D32296B0C300626FDD /* Fonts */,
+				F7258E4F229A598500B64465 /* Logos */,
 				F7DFB4F62298A17500626FDD /* Icons */,
 				F7206D04228CEC6900F9EF53 /* Assets.xcassets */,
-				F7206D1D228D5CF400F9EF53 /* logo-white.png */,
 				F7206D06228CEC6900F9EF53 /* LaunchScreen.storyboard */,
-				F7206D17228D0D9E00F9EF53 /* logo.png */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		F7258E4F229A598500B64465 /* Logos */ = {
+			isa = PBXGroup;
+			children = (
+				F7206D1D228D5CF400F9EF53 /* logo-white.png */,
+				F7206D17228D0D9E00F9EF53 /* logo.png */,
+			);
+			path = Logos;
 			sourceTree = "<group>";
 		};
 		F7878AE3228EEAC900BD20A1 /* Scenes */ = {
@@ -155,7 +164,6 @@
 				F7DFB4E82297DA2D00626FDD /* RegisterViewController.swift */,
 				F7DFB4EA2297DB5900626FDD /* DashboardViewController.swift */,
 				F7DFB4EE2297E16200626FDD /* TeamViewController.swift */,
-				F7DFB4F02297E54500626FDD /* FSBaseViewController.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";

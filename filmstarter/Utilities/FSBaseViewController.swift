@@ -9,6 +9,16 @@
 import Foundation
 import UIKit
 
+/*
+    A base view wrapper for the UIViewController
+    to perform basic setup which is universal across all views.
+    Since we want responsive views that turn into scrollviews
+    when required, it makes sense to not duplicate code
+    and have one class which always sets this up the right way
+    since they are often difficult to implement programatically
+    and responsively.
+*/
+
 class FSBaseViewController : UIViewController
 {
     var contentView : UIView? = nil;

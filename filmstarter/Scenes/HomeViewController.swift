@@ -9,6 +9,14 @@
 import Foundation
 import UIKit
 
+/*
+     The base view controller of the program - the first entry point.
+     Sets up the login and register buttons & the gradient background.
+     Inherits the functionality of the FSBaseViewController, which sets
+     up the scrollview & content view for convenience and to
+     prevent code duplication.
+ */
+
 class HomeViewController: FSBaseViewController {
     override func viewDidLoad()
     {
@@ -78,8 +86,8 @@ class HomeViewController: FSBaseViewController {
         let backgroundGradient = [UIColor(hex: "#f1407e"), UIColor(hex: "#f2693c")].gradient
         {
             gradient in
-            gradient.startPoint = CGPoint(x: 0.3, y: 1)
-            gradient.endPoint = CGPoint(x: 1, y: 0.3)
+                gradient.startPoint = CGPoint(x: 0.3, y: 1)
+                gradient.endPoint = CGPoint(x: 1, y: 0.3)
             return gradient
         }
         
