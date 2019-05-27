@@ -9,6 +9,13 @@
 import Foundation
 import UIKit
 
+/*
+
+    The base navigation controller which controls
+    the profile view(s). We set the background image to nothing
+    to make the bar transparent, to work with our views.
+ 
+*/
 class FSNavigationController : UINavigationController
 {
     override func viewDidLoad()

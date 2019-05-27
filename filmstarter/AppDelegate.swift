@@ -49,6 +49,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         
+        /*
+            Check if the user has a valid token and return them to the
+            dashboard even if they quit the application
+            and remove it from the cache. If they do not, we present
+            the base home screen.
+        */
         AuthenticationManager
             .sessionManager
             .request("https://filmstarter.dionmisic.com/valid-token",

@@ -10,6 +10,11 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
+/*
+    A utitlity class to inject the token
+    into every request to the server. Store the
+    token into UserDefaults and retrieve when required.
+*/
 class AuthenticationManager
 {
     static let sessionManager = SessionManager();

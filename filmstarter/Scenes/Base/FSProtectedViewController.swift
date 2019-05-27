@@ -10,6 +10,16 @@ import Foundation
 import UIKit
 import SwiftyJSON
 
+/*
+
+    A base controller built atop of UIViewController to query the server
+    for the validity of the client's token. If it's valid, it'll let the user
+    view the page. Otherwise, it'll redirect them back to the homepage.
+ 
+    Making it a base class allows us to re-use this functionality with
+    a simple boolean value.
+ 
+*/
 class FSProtectedViewController : UIViewController
 {
     var isProtectedView : Bool = false;

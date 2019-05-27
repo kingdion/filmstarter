@@ -33,6 +33,13 @@ class ProfileViewController : FSBaseViewController
     
     func populateUserData()
     {
+        /*
+ 
+            Query the database for the logged-in users'
+            information to display them in the application.
+            Save the results to variables, stop the loading
+            animation, and populate the view.
+        */
         AuthenticationManager
             .sessionManager
             .request("https://filmstarter.dionmisic.com/get-user",
@@ -98,6 +105,19 @@ class ProfileViewController : FSBaseViewController
         horizontalLine.widthAnchor.constraint(equalToConstant: self.view.frame.width / 1.5).isActive = true;
         horizontalLine.leadingAnchor.constraint(equalTo: scrollView!.leadingAnchor, constant: 15).isActive = true;
         
+        let projectsLabel = FSLabel(frame: scrollView!.bounds);
+        projectsLabel.font = UIFont(name: "MyriadPro-Bold", size: 28);
+        projectsLabel.text = "Projects";
+        projectsLabel.textColor = UIColor.black;
+        projectsLabel.kerning = -1.75;
+        
+        scrollView!.addSubview(projectsLabel);
+        
+        projectsLabel.translatesAutoresizingMaskIntoConstraints = false;
+        projectsLabel.topAnchor.constraint(equalTo: horizontalLine.bottomAnchor, constant: 30).isActive = true;
+        projectsLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true;
+        projectsLabel.leadingAnchor.constraint(equalTo: scrollView!.leadingAnchor, constant: 15).isActive = true;
+        
         logoutButton.setTitle("Log Out", for: UIControl.State.normal);
         logoutButton.translatesAutoresizingMaskIntoConstraints = false;
         logoutButton.titleColor = "#ffffff";
@@ -106,9 +126,9 @@ class ProfileViewController : FSBaseViewController
         
         scrollView!.addSubview(logoutButton);
         
-        logoutButton.topAnchor.constraint(greaterThanOrEqualTo: horizontalLine.bottomAnchor, constant: 10).isActive = true;
-        logoutButton.leadingAnchor.constraint(equalTo: scrollView!.leadingAnchor, constant: 20).isActive = true;
-        logoutButton.trailingAnchor.constraint(equalTo: scrollView!.trailingAnchor, constant: -20).isActive = true;
+        logoutButton.topAnchor.constraint(greaterThanOrEqualTo: projectsLabel.bottomAnchor, constant: 10).isActive = true;
+        logoutButton.leadingAnchor.constraint(equalTo: scrollView!.leadingAnchor, constant: 15).isActive = true;
+        logoutButton.trailingAnchor.constraint(equalTo: scrollView!.trailingAnchor, constant: -15).isActive = true;
         logoutButton.heightAnchor.constraint(equalToConstant: 60).isActive = true;
         logoutButton.centerXAnchor.constraint(equalTo: scrollView!.centerXAnchor).isActive = true;
         logoutButton.bottomAnchor.constraint(equalTo: scrollView!.bottomAnchor, constant: -30).isActive = true;
@@ -117,6 +137,10 @@ class ProfileViewController : FSBaseViewController
     
     @objc func logoutButtonTap()
     {
+        /*
+            Remove the token from the client and redirect
+            them to the homepage to login again.
+        */
         JWTAdapter.accessToken = "";
         self.present(HomeViewController(), animated: true);
     }
