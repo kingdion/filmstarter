@@ -8,6 +8,7 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import SwiftyJSON
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -47,6 +48,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        
+        AuthenticationManager
+            .sessionManager
+            .request("https://filmstarter.dionmisic.com/valid-token",
+                     method: .get).responseJSON {
+                        response in
+                        
+                        do
+                        {
+                            let json = try JSON(data: response.data!);
+                            
+                            if (json["success"].bool! == true)
+                            {
+                                let tabController = ButtonTabBarViewController();
+                                let navigationController = FSNavigationController(rootViewController: tabController);
+                                
+                                self.window?.rootViewController?.present(navigationController, animated: true, completion: nil)
+                            }
+                        }
+                        catch
+                        {
+                            return
+                        }
+        }
     }
 
     func applicationWillTerminate(_ application: UIApplication) {

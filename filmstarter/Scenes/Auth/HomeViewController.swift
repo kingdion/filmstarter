@@ -29,39 +29,6 @@ class HomeViewController: FSBaseViewController {
         
         setupLogo();
         setupButtons();
-        checkAndSendToDashIfLoggedIn()
-    }
-    
-    func checkAndSendToDashIfLoggedIn()
-    {
-        AuthenticationManager
-            .sessionManager
-            .request("https://filmstarter.dionmisic.com/valid-token",
-                     method: .get).responseJSON {
-                        response in
-                        
-                        do
-                        {
-                            let json = try JSON(data: response.data!);
-                            print(json)
-                            
-                            if (json["success"].bool! == true)
-                            {
-                                let tabController = ButtonTabBarViewController();
-                                let navigationController = FSNavigationController(rootViewController: tabController);
-                                
-                                self.present(navigationController, animated: true);
-                            }
-                            else
-                            {
-                                return
-                            }
-                        }
-                        catch
-                        {
-                            return
-                        }
-        }
     }
     
     func setupLogo()
