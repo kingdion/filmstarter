@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 /*
     The core navigation of the film "projects". This is the main
@@ -28,6 +30,7 @@ class DashboardViewController: FSBaseViewController {
     {
         super.includeLogo = true;
         super.includeScrollView = true;
+        super.isProtectedView = true;
         logo = UIImageView(image: UIImage(named: "logo.png"));
         super.viewDidLoad();
         
@@ -196,7 +199,7 @@ class DashboardViewController: FSBaseViewController {
     
     @objc func openTeamView()
     {
-        var teamView = TeamViewController();
+        let teamView = TeamViewController();
         navigationController?.pushViewController(teamView, animated: true);
     }
 }

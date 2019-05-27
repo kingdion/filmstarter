@@ -19,7 +19,7 @@ import UIKit
     and responsively.
 */
 
-class FSBaseViewController : UIViewController
+class FSBaseViewController : FSProtectedViewController
 {
     var contentView : UIView? = nil;
     var scrollView : UIScrollView? = nil;
@@ -27,6 +27,8 @@ class FSBaseViewController : UIViewController
     
     var includeLogo : Bool = false;
     var includeScrollView : Bool = false;
+    
+    let activityIndicator = UIActivityIndicatorView(style: .whiteLarge);
     
     override func viewDidLoad()
     {
@@ -68,6 +70,25 @@ class FSBaseViewController : UIViewController
         logo.leadingAnchor.constraint(equalTo: scrollView!.leadingAnchor, constant: 15).isActive = true;
         logo.heightAnchor.constraint(equalToConstant: 50).isActive = true;
         logo.widthAnchor.constraint(equalToConstant: 180).isActive = true;
+        
+        activityIndicator.hidesWhenStopped = true;
+        
+        scrollView!.addSubview(activityIndicator);
+        
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false;
+        activityIndicator.topAnchor.constraint(equalTo: logo.topAnchor).isActive = true;
+        activityIndicator.trailingAnchor.constraint(equalTo: self.view!.safeAreaLayoutGuide.trailingAnchor, constant: -15).isActive = true;
+    }
+    
+    func startLoadingAnimation(color : UIColor = UIColor.white)
+    {
+        activityIndicator.color = color;
+        activityIndicator.startAnimating();
+    }
+    
+    func stopLoadingAnimation()
+    {
+        activityIndicator.stopAnimating();
     }
     
     func setupScrollView()

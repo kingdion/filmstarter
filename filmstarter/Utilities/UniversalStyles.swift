@@ -18,8 +18,9 @@ import Hue
 
 struct UniversalStyles
 {
-    struct Colours
+    struct UserDefaults
     {
+        static var TokenKey : String = "current_login_token";
     }
     
     struct Fonts

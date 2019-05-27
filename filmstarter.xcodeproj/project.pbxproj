@@ -24,6 +24,9 @@
 		F7258E5B229A7B9400B64465 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7258E5A229A7B9400B64465 /* SettingsViewController.swift */; };
 		F75B09AB229AAE5300CF7559 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75B09AA229AAE5300CF7559 /* AlertHelper.swift */; };
 		F75B09AD229B42BC00CF7559 /* FSNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75B09AC229B42BC00CF7559 /* FSNavigationController.swift */; };
+		F75B09AF229B601200CF7559 /* JWTAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75B09AE229B601200CF7559 /* JWTAdapter.swift */; };
+		F75B09B1229B66DE00CF7559 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75B09B0229B66DE00CF7559 /* AuthenticationManager.swift */; };
+		F75B09B5229B8EF000CF7559 /* FSProtectedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75B09B4229B8EF000CF7559 /* FSProtectedViewController.swift */; };
 		F7DFB4DD2296B2AA00626FDD /* MyriadPro-Bold.OTF in Resources */ = {isa = PBXBuildFile; fileRef = F7DFB4DB2296B2A700626FDD /* MyriadPro-Bold.OTF */; };
 		F7DFB4DE2296B2AD00626FDD /* MyriadPro-Regular.OTF in Resources */ = {isa = PBXBuildFile; fileRef = F7DFB4DC2296B2A700626FDD /* MyriadPro-Regular.OTF */; };
 		F7DFB4DF2296B2B000626FDD /* MyriadPro-SemiBold.OTF in Resources */ = {isa = PBXBuildFile; fileRef = F7DFB4DA2296B2A700626FDD /* MyriadPro-SemiBold.OTF */; };
@@ -56,6 +59,9 @@
 		F7258E5A229A7B9400B64465 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		F75B09AA229AAE5300CF7559 /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		F75B09AC229B42BC00CF7559 /* FSNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSNavigationController.swift; sourceTree = "<group>"; };
+		F75B09AE229B601200CF7559 /* JWTAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTAdapter.swift; sourceTree = "<group>"; };
+		F75B09B0229B66DE00CF7559 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
+		F75B09B4229B8EF000CF7559 /* FSProtectedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSProtectedViewController.swift; sourceTree = "<group>"; };
 		F7DFB4DA2296B2A700626FDD /* MyriadPro-SemiBold.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-SemiBold.OTF"; sourceTree = "<group>"; };
 		F7DFB4DB2296B2A700626FDD /* MyriadPro-Bold.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Bold.OTF"; sourceTree = "<group>"; };
 		F7DFB4DC2296B2A700626FDD /* MyriadPro-Regular.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Regular.OTF"; sourceTree = "<group>"; };
@@ -128,14 +134,14 @@
 		F7206D0F228CFAAE00F9EF53 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				F7DFB4F02297E54500626FDD /* FSBaseViewController.swift */,
 				F7206D21228D818600F9EF53 /* FSLabel.swift */,
 				F7206D10228CFABB00F9EF53 /* UniversalStyles.swift */,
 				F7206D19228D107700F9EF53 /* FSButton.swift */,
 				F7206D2B228D87F800F9EF53 /* FSInput.swift */,
 				F7258E52229A6E7200B64465 /* HideKeyboardExtension.swift */,
 				F75B09AA229AAE5300CF7559 /* AlertHelper.swift */,
-				F75B09AC229B42BC00CF7559 /* FSNavigationController.swift */,
+				F75B09AE229B601200CF7559 /* JWTAdapter.swift */,
+				F75B09B0229B66DE00CF7559 /* AuthenticationManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -160,17 +166,52 @@
 			path = Logos;
 			sourceTree = "<group>";
 		};
+		F75B09B6229BA87D00CF7559 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				F7258E56229A765100B64465 /* BottomTabBarViewController.swift */,
+				F7DFB4EE2297E16200626FDD /* TeamViewController.swift */,
+				F7DFB4EA2297DB5900626FDD /* DashboardViewController.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		F75B09B7229BA88400CF7559 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				F7DFB4E82297DA2D00626FDD /* RegisterViewController.swift */,
+				F7DFB4E02296DD8F00626FDD /* LoginViewController.swift */,
+				F7206D14228D0A4400F9EF53 /* HomeViewController.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		F75B09B8229BA88B00CF7559 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				F7258E5A229A7B9400B64465 /* SettingsViewController.swift */,
+				F7258E54229A74F200B64465 /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		F75B09B9229BA8B100CF7559 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				F75B09AC229B42BC00CF7559 /* FSNavigationController.swift */,
+				F75B09B4229B8EF000CF7559 /* FSProtectedViewController.swift */,
+				F7DFB4F02297E54500626FDD /* FSBaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		F7878AE3228EEAC900BD20A1 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				F7206D14228D0A4400F9EF53 /* HomeViewController.swift */,
-				F7DFB4E02296DD8F00626FDD /* LoginViewController.swift */,
-				F7DFB4E82297DA2D00626FDD /* RegisterViewController.swift */,
-				F7DFB4EA2297DB5900626FDD /* DashboardViewController.swift */,
-				F7DFB4EE2297E16200626FDD /* TeamViewController.swift */,
-				F7258E54229A74F200B64465 /* ProfileViewController.swift */,
-				F7258E56229A765100B64465 /* BottomTabBarViewController.swift */,
-				F7258E5A229A7B9400B64465 /* SettingsViewController.swift */,
+				F75B09B9229BA8B100CF7559 /* Base */,
+				F75B09B8229BA88B00CF7559 /* Profile */,
+				F75B09B7229BA88400CF7559 /* Auth */,
+				F75B09B6229BA87D00CF7559 /* Core */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -319,6 +360,8 @@
 				F7DFB4E12296DD8F00626FDD /* LoginViewController.swift in Sources */,
 				F7DFB4F12297E54500626FDD /* FSBaseViewController.swift in Sources */,
 				F7258E53229A6E7200B64465 /* HideKeyboardExtension.swift in Sources */,
+				F75B09B1229B66DE00CF7559 /* AuthenticationManager.swift in Sources */,
+				F75B09B5229B8EF000CF7559 /* FSProtectedViewController.swift in Sources */,
 				F7DFB4EB2297DB5900626FDD /* DashboardViewController.swift in Sources */,
 				F75B09AB229AAE5300CF7559 /* AlertHelper.swift in Sources */,
 				F7258E57229A765100B64465 /* BottomTabBarViewController.swift in Sources */,
@@ -332,6 +375,7 @@
 				F7258E55229A74F200B64465 /* ProfileViewController.swift in Sources */,
 				F7206D1A228D107700F9EF53 /* FSButton.swift in Sources */,
 				F7DFB4EF2297E16200626FDD /* TeamViewController.swift in Sources */,
+				F75B09AF229B601200CF7559 /* JWTAdapter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

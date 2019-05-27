@@ -13,6 +13,7 @@ class TeamViewController : FSBaseViewController {
     override func viewDidLoad()
     {
         super.includeScrollView = true;
+        super.isProtectedView = true;
         super.includeLogo = true;
         super.viewDidLoad();
         self.view.backgroundColor = UIColor.red;

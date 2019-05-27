@@ -19,11 +19,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Filmstarter Entry Point - Project written by Dion Misic
         
+        AuthenticationManager.setup();
+        
         window = UIWindow(frame: UIScreen.main.bounds);
         window?.rootViewController = HomeViewController();
         window?.makeKeyAndVisible();
         
-        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.enable = true;
+        
         
         return true
     }

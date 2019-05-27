@@ -257,6 +257,8 @@ class RegisterViewController : FSBaseViewController, UITextFieldDelegate
                                 
                                 if (json["success"].bool! == true)
                                 {
+                                    AuthenticationManager.setToken(token: json["token"].string!);
+
                                     let dashboardScreen = ButtonTabBarViewController();
                                     let navigationController = FSNavigationController(rootViewController: dashboardScreen);
                                     

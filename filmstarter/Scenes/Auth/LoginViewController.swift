@@ -23,6 +23,7 @@ class LoginViewController : FSBaseViewController, UITextFieldDelegate
         super.includeLogo = false;
         super.includeScrollView = true;
         super.viewDidLoad();
+        
         self.hideKeyboardWhenTappedAround();
         
         usernameInput.delegate = self;
@@ -204,6 +205,8 @@ class LoginViewController : FSBaseViewController, UITextFieldDelegate
                                 
                                 if (json["success"].bool! == true)
                                 {
+                                    AuthenticationManager.setToken(token: json["token"].string!);
+                                    
                                     let tabController = ButtonTabBarViewController();
                                     let navigationController = FSNavigationController(rootViewController: tabController);
 
