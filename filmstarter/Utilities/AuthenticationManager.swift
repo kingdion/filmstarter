@@ -22,7 +22,12 @@ class AuthenticationManager
     static func setup()
     {
         sessionManager.adapter = JWTAdapter();
-        JWTAdapter.accessToken = UserDefaults.standard.string(forKey: UniversalStyles.UserDefaults.TokenKey)!;
+        let token = UserDefaults.standard.string(forKey: UniversalStyles.UserDefaults.TokenKey);
+        
+        if (token != nil)
+        {
+            JWTAdapter.accessToken = token!;
+        }
     }
     
     static func setToken(token : String)

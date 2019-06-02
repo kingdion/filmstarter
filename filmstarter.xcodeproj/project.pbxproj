@@ -27,6 +27,7 @@
 		F75B09AF229B601200CF7559 /* JWTAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75B09AE229B601200CF7559 /* JWTAdapter.swift */; };
 		F75B09B1229B66DE00CF7559 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75B09B0229B66DE00CF7559 /* AuthenticationManager.swift */; };
 		F75B09B5229B8EF000CF7559 /* FSProtectedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75B09B4229B8EF000CF7559 /* FSProtectedViewController.swift */; };
+		F75B09BB229BDC5A00CF7559 /* FSProjectBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75B09BA229BDC5A00CF7559 /* FSProjectBox.swift */; };
 		F7DFB4DD2296B2AA00626FDD /* MyriadPro-Bold.OTF in Resources */ = {isa = PBXBuildFile; fileRef = F7DFB4DB2296B2A700626FDD /* MyriadPro-Bold.OTF */; };
 		F7DFB4DE2296B2AD00626FDD /* MyriadPro-Regular.OTF in Resources */ = {isa = PBXBuildFile; fileRef = F7DFB4DC2296B2A700626FDD /* MyriadPro-Regular.OTF */; };
 		F7DFB4DF2296B2B000626FDD /* MyriadPro-SemiBold.OTF in Resources */ = {isa = PBXBuildFile; fileRef = F7DFB4DA2296B2A700626FDD /* MyriadPro-SemiBold.OTF */; };
@@ -62,6 +63,7 @@
 		F75B09AE229B601200CF7559 /* JWTAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTAdapter.swift; sourceTree = "<group>"; };
 		F75B09B0229B66DE00CF7559 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		F75B09B4229B8EF000CF7559 /* FSProtectedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSProtectedViewController.swift; sourceTree = "<group>"; };
+		F75B09BA229BDC5A00CF7559 /* FSProjectBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSProjectBox.swift; sourceTree = "<group>"; };
 		F7DFB4DA2296B2A700626FDD /* MyriadPro-SemiBold.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-SemiBold.OTF"; sourceTree = "<group>"; };
 		F7DFB4DB2296B2A700626FDD /* MyriadPro-Bold.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Bold.OTF"; sourceTree = "<group>"; };
 		F7DFB4DC2296B2A700626FDD /* MyriadPro-Regular.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Regular.OTF"; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				F75B09AA229AAE5300CF7559 /* AlertHelper.swift */,
 				F75B09AE229B601200CF7559 /* JWTAdapter.swift */,
 				F75B09B0229B66DE00CF7559 /* AuthenticationManager.swift */,
+				F75B09BA229BDC5A00CF7559 /* FSProjectBox.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				F7258E53229A6E7200B64465 /* HideKeyboardExtension.swift in Sources */,
 				F75B09B1229B66DE00CF7559 /* AuthenticationManager.swift in Sources */,
 				F75B09B5229B8EF000CF7559 /* FSProtectedViewController.swift in Sources */,
+				F75B09BB229BDC5A00CF7559 /* FSProjectBox.swift in Sources */,
 				F7DFB4EB2297DB5900626FDD /* DashboardViewController.swift in Sources */,
 				F75B09AB229AAE5300CF7559 /* AlertHelper.swift in Sources */,
 				F7258E57229A765100B64465 /* BottomTabBarViewController.swift in Sources */,

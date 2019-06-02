@@ -30,7 +30,7 @@ class LoginViewController : FSBaseViewController, UITextFieldDelegate
         passwordInput.delegate = self;
         
         scrollView!.backgroundColor = UIColor.white;
-        setupLoginBox()
+        setupLoginBox();
     }
     
     func setupLoginBox()

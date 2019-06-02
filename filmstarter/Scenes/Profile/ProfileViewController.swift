@@ -16,6 +16,8 @@ class ProfileViewController : FSBaseViewController
     var username = "";
     var fullName = "";
     let logoutButton = FSButton(frame: CGRect());
+    var projects : JSON = JSON();
+    var projectBoxes : [FSProjectBox] = [FSProjectBox]();
     
     override func viewDidLoad()
     {
@@ -34,7 +36,6 @@ class ProfileViewController : FSBaseViewController
     func populateUserData()
     {
         /*
- 
             Query the database for the logged-in users'
             information to display them in the application.
             Save the results to variables, stop the loading
@@ -48,14 +49,33 @@ class ProfileViewController : FSBaseViewController
                         
                         do
                         {
-                            let json = try JSON(data: response.data!);
-                            print(json)
+                            let json = try JSON(data: response.data!); 
                             
                             if (json["success"].bool! == true)
                             {
                                 self.username = json["user"]["username"].string!;
                                 self.fullName = json["user"]["first_name"].string! + " " + json["user"]["last_name"].string!;
-                                
+                            }
+                        }
+                        catch
+                        {
+                            return
+                        }
+        }
+        
+        AuthenticationManager
+            .sessionManager
+            .request("https://filmstarter.dionmisic.com/projects/get",
+                     method: .get).responseJSON {
+                        response in
+                        
+                        do
+                        {
+                            let json = try JSON(data: response.data!);
+                            
+                            if (json["success"].bool! == true)
+                            {
+                                self.projects = json["projects"];
                                 self.setupUserDetailsAndNavigation();
                                 self.stopLoadingAnimation();
                             }
@@ -118,6 +138,44 @@ class ProfileViewController : FSBaseViewController
         projectsLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true;
         projectsLabel.leadingAnchor.constraint(equalTo: scrollView!.leadingAnchor, constant: 15).isActive = true;
         
+        for project in projects
+        {
+            let projectId = project.1["id"].string!;
+            let name = project.1["name"].string!;
+            let team = project.1["production_team"].string!;
+            let description = project.1["description"].string!;
+            let active = project.1["is_active"].bool!;
+            let role = project.1["role"].string!;
+            
+            let box = FSProjectBox(projectId: projectId,
+                                   projectName: name,
+                                   productionTeam: team,
+                                   description: description,
+                                   isActive: active);
+            
+            scrollView!.addSubview(box);
+            box.translatesAutoresizingMaskIntoConstraints = false;
+            
+            if (projectBoxes.count == 0)
+            {
+                box.topAnchor.constraint(equalTo: projectsLabel.bottomAnchor, constant: 10).isActive = true;
+            }
+            else
+            {
+                box.topAnchor.constraint(equalTo: projectBoxes.last!.bottomAnchor, constant: 10).isActive = true;
+            }
+            
+            box.heightAnchor.constraint(equalToConstant: 75).isActive = true;
+            box.leadingAnchor.constraint(equalTo: scrollView!.leadingAnchor, constant: 15).isActive = true;
+            box.trailingAnchor.constraint(equalTo: scrollView!.trailingAnchor, constant: -15).isActive = true;
+            projectBoxes.append(box);
+        }
+        
+        for project in projectBoxes
+        {
+            project.projectBoxes = projectBoxes;
+        }
+        
         logoutButton.setTitle("Log Out", for: UIControl.State.normal);
         logoutButton.translatesAutoresizingMaskIntoConstraints = false;
         logoutButton.titleColor = "#ffffff";
@@ -126,7 +184,15 @@ class ProfileViewController : FSBaseViewController
         
         scrollView!.addSubview(logoutButton);
         
-        logoutButton.topAnchor.constraint(greaterThanOrEqualTo: projectsLabel.bottomAnchor, constant: 10).isActive = true;
+        if (projectBoxes.count == 0)
+        {
+            logoutButton.topAnchor.constraint(greaterThanOrEqualTo: horizontalLine.bottomAnchor, constant: 10).isActive = true;
+        }
+        else
+        {
+            logoutButton.topAnchor.constraint(greaterThanOrEqualTo: projectBoxes.last!.bottomAnchor, constant: 10).isActive = true;
+        }
+
         logoutButton.leadingAnchor.constraint(equalTo: scrollView!.leadingAnchor, constant: 15).isActive = true;
         logoutButton.trailingAnchor.constraint(equalTo: scrollView!.trailingAnchor, constant: -15).isActive = true;
         logoutButton.heightAnchor.constraint(equalToConstant: 60).isActive = true;
