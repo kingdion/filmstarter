@@ -93,6 +93,7 @@ class DashboardViewController: FSBaseViewController {
         
         scrollView!.addSubview(projectNameLabel);
         
+        projectNameLabel.numberOfLines = 0;
         projectNameLabel.translatesAutoresizingMaskIntoConstraints = false;
         projectNameLabel.topAnchor.constraint(equalTo: logo.bottomAnchor, constant: 10).isActive = true;
         projectNameLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true;

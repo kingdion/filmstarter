@@ -9,6 +9,17 @@
 import Foundation
 import UIKit
 
+/*
+
+ A base view built ontop of the already
+ established base views to setup the page
+ headers for all of the inner-core parts
+ of the application. Rather than duplicating
+ the view logic x4, this makes it easier to
+ set a gradient background for the top and add
+ a header name.
+ 
+*/
 class FSTopBaseView : FSBaseViewController
 {
     let mainView = UIView();

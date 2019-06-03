@@ -13,6 +13,7 @@ import UIKit
 class TeamViewController : FSTopBaseView
 {
     let usernameInput = FSInput(frame: CGRect());
+    var users : JSON = JSON();
     
     override func viewDidLoad()
     {
@@ -22,7 +23,33 @@ class TeamViewController : FSTopBaseView
         
         super.viewDidLoad();
         
-        setupInput();
+        populateUserData();
+    }
+    
+    func populateUserData()
+    {
+        AuthenticationManager
+            .sessionManager
+            .request("https://filmstarter.dionmisic.com/projects/team/users",
+                     method: .get).responseJSON {
+                        response in
+                        
+                        do
+                        {
+                            let json = try JSON(data: response.data!);
+                            
+                            if (json["success"].bool! == true)
+                            {
+                                self.users = json["users"];
+                                self.setupInput();
+                                self.stopLoadingAnimation();
+                            }
+                        }
+                        catch
+                        {
+                            return
+                        }
+        }
     }
     
     func setupInput()
@@ -74,7 +101,7 @@ class TeamViewController : FSTopBaseView
         AuthenticationManager
             .sessionManager
             .request("https://filmstarter.dionmisic.com/projects/add",
-                 method: .get).responseJSON {
+                    method: .post, parameters: ["project_id": "test", "user_id": "test"]).responseJSON {
                     response in
                     
                     do
@@ -83,7 +110,6 @@ class TeamViewController : FSTopBaseView
                         
                         if (json["success"].bool! == true)
                         {
-                            
                             self.stopLoadingAnimation();
                         }
                     }
@@ -93,4 +119,6 @@ class TeamViewController : FSTopBaseView
                     }
         }
     }
+    
+    
 }
