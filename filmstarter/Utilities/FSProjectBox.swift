@@ -127,6 +127,7 @@ class FSProjectBox : UIView
         }
     }
     
+    // Change a project to visually look "active"
     func setActive(_ project : FSProjectBox)
     {
         project.isActive = true;
@@ -140,6 +141,7 @@ class FSProjectBox : UIView
             .request("https://filmstarter.dionmisic.com/projects/select", method: .post, parameters: parameters);
     }
     
+    // Change a project to visually look "inactive"
     func unsetActive(_ project : FSProjectBox)
     {
         project.isActive = false;
@@ -149,6 +151,9 @@ class FSProjectBox : UIView
         project.layer.borderColor = UIColor.lightGray.cgColor;
     }
     
+    // Iterates through all subviews of a view
+    // and turns all label elements' text colour
+    // to the specified colour.
     func setAllTextColours(project : FSProjectBox, color : UIColor)
     {
         for sub in project.subviews

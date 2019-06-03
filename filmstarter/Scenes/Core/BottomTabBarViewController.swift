@@ -40,6 +40,10 @@ class ButtonTabBarViewController : UITabBarController, UITabBarControllerDelegat
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController)
     {
+        // If we swap to the dashboard, reload the view
+        // because we have likely changed something
+        // in the settings and need to update
+        // the values.
         if (viewController.title! == "Dashboard")
         {
             (viewController as! DashboardViewController).reload();
