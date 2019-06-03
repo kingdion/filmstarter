@@ -174,7 +174,6 @@
 			children = (
 				F7258E56229A765100B64465 /* BottomTabBarViewController.swift */,
 				F7DFB4EE2297E16200626FDD /* TeamViewController.swift */,
-				F7DFB4EA2297DB5900626FDD /* DashboardViewController.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -193,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				F7258E5A229A7B9400B64465 /* SettingsViewController.swift */,
+				F7DFB4EA2297DB5900626FDD /* DashboardViewController.swift */,
 				F7258E54229A74F200B64465 /* ProfileViewController.swift */,
 			);
 			path = Profile;

@@ -28,6 +28,11 @@ class FSBaseViewController : FSProtectedViewController
     var includeLogo : Bool = false;
     var includeScrollView : Bool = false;
     
+    var firstColor : UIColor? = nil;
+    var secondColor : UIColor? = nil;
+    
+    var header : UIView? = nil;
+    
     let activityIndicator = UIActivityIndicatorView(style: .whiteLarge);
     
     override func viewDidLoad()
@@ -62,11 +67,42 @@ class FSBaseViewController : FSProtectedViewController
     
     func setupMainLogo()
     {
+        header = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height/4));
+        
+        scrollView!.addSubview(header!);
+        
+        header!.translatesAutoresizingMaskIntoConstraints = false;
+        header!.topAnchor.constraint(equalTo: scrollView!.topAnchor).isActive = true;
+        header!.leadingAnchor.constraint(equalTo: scrollView!.leadingAnchor).isActive = true;
+        header!.trailingAnchor.constraint(equalTo: scrollView!.trailingAnchor).isActive = true;
+        
+        if (firstColor != nil && secondColor != nil)
+        {
+            let backgroundWrapper = UIView(frame: CGRect(x: 0,
+                                                         y: 0,
+                                                         width: header!.frame.width,
+                                                         height: header!.frame.height));
+            
+            let backgroundGradient = [firstColor!, secondColor!].gradient
+            {
+                gradient in
+                gradient.startPoint = CGPoint(x: 0.3, y: 1)
+                gradient.endPoint = CGPoint(x: 1, y: 0.3)
+                return gradient
+            }
+            
+            backgroundGradient.frame = backgroundWrapper.bounds;
+            
+            self.view.addSubview(backgroundWrapper);
+            backgroundWrapper.layer.addSublayer(backgroundGradient);
+            self.view.sendSubviewToBack(backgroundWrapper);
+        }
+        
         logo.translatesAutoresizingMaskIntoConstraints = false;
         
-        scrollView!.addSubview(logo);
+        header!.addSubview(logo);
         
-        logo.topAnchor.constraint(equalTo: scrollView!.topAnchor).isActive = true;
+        logo.topAnchor.constraint(equalTo: scrollView!.safeAreaLayoutGuide.topAnchor).isActive = true;
         logo.leadingAnchor.constraint(equalTo: scrollView!.leadingAnchor, constant: 15).isActive = true;
         logo.heightAnchor.constraint(equalToConstant: 50).isActive = true;
         logo.widthAnchor.constraint(equalToConstant: 180).isActive = true;

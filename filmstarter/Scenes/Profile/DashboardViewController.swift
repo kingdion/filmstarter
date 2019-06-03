@@ -26,8 +26,12 @@ import SwiftyJSON
 
 class DashboardViewController: FSBaseViewController {
     
+    var currentProject : JSON = JSON();
+    
     override func viewDidLoad()
     {
+        self.title = "Dashboard";
+        
         super.includeLogo = true;
         super.includeScrollView = true;
         super.isProtectedView = true;
@@ -35,15 +39,56 @@ class DashboardViewController: FSBaseViewController {
         super.viewDidLoad();
         
         self.view!.backgroundColor = UIColor.white;
+        self.startLoadingAnimation(color: UIColor.gray);
+        populateUserData();
+    }
+    
+    func reload()
+    {
+        for sub in self.view.subviews
+        {
+            sub.removeFromSuperview();
+        }
         
-        setupUserDetailsAndNavigation();
+        self.viewDidLoad();
+    }
+    
+    func populateUserData(redraw : Bool = false)
+    {
+        AuthenticationManager
+            .sessionManager
+            .request("https://filmstarter.dionmisic.com/projects/get/current",
+                     method: .get).responseJSON {
+                        response in
+                        
+                        do
+                        {
+                            let json = try JSON(data: response.data!);
+                            
+                            if (json["success"].bool! == true)
+                            {
+                                self.currentProject = json["projects"][0];
+                                
+                                if (!redraw)
+                                {
+                                    self.setupUserDetailsAndNavigation();
+                                }
+                                
+                                self.stopLoadingAnimation();
+                            }
+                        }
+                        catch
+                        {
+                            return
+                        }
+        }
     }
     
     func setupUserDetailsAndNavigation()
     {
         let projectNameLabel = FSLabel(frame: scrollView!.bounds);
         projectNameLabel.font = UIFont(name: "MyriadPro-Bold", size: 44);
-        projectNameLabel.text = "Harry Potter";
+        projectNameLabel.text = self.currentProject["name"].string!;
         projectNameLabel.kerning = -2;
         
         scrollView!.addSubview(projectNameLabel);
@@ -55,7 +100,7 @@ class DashboardViewController: FSBaseViewController {
         
         let productionTeamLabel = FSLabel(frame: scrollView!.bounds);
         productionTeamLabel.font = UIFont(name: "MyriadPro-Bold", size: 28);
-        productionTeamLabel.text = "Warner Brothers";
+        productionTeamLabel.text = self.currentProject["production_team"].string!;
         productionTeamLabel.textColor = UIColor.gray;
         productionTeamLabel.kerning = -1.75;
         
@@ -136,13 +181,13 @@ class DashboardViewController: FSBaseViewController {
         homeButton.leadingAnchor.constraint(equalTo: scrollView!.leadingAnchor, constant: 15).isActive = true;
         homeButton.heightAnchor.constraint(equalToConstant: squareLength).isActive = true;
         homeButton.widthAnchor.constraint(equalToConstant: squareLength).isActive = true;
+        homeButton.addTarget(self, action: #selector(openTeamView), for: .touchUpInside);
         
         scrollView!.addSubview(teamButton);
         
         teamButton.setImage(UIImage(named: "calendar.png"), for: .normal)
         teamButton.imageView?.contentMode = .scaleToFill;
         teamButton.imageEdgeInsets = imageEdgeInset;
-        teamButton.addTarget(self, action: #selector(openTeamView), for: .touchUpInside);
         
         teamButton.topAnchor.constraint(equalTo: horizontalLine.bottomAnchor, constant: 15).isActive = true;
         teamButton.leadingAnchor.constraint(equalTo: homeButton.trailingAnchor).isActive = true;

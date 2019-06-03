@@ -21,6 +21,8 @@ class ProfileViewController : FSBaseViewController
     
     override func viewDidLoad()
     {
+        self.title = "Profile";
+        
         super.includeLogo = true;
         logo = UIImageView(image: UIImage(named: "logo.png"));
         super.includeScrollView = true;
@@ -151,6 +153,7 @@ class ProfileViewController : FSBaseViewController
                                    projectName: name,
                                    productionTeam: team,
                                    description: description,
+                                   role: role,
                                    isActive: active);
             
             scrollView!.addSubview(box);

@@ -19,21 +19,30 @@ import UIKit
     and then use the dashboard view to interact with it.
 */
 
-class ButtonTabBarViewController : UITabBarController
+class ButtonTabBarViewController : UITabBarController, UITabBarControllerDelegate
 {
+    let dashboard = DashboardViewController();
+    let profile = ProfileViewController();
+    let settings = SettingsViewController();
+    
     override func viewDidLoad()
     {
+        self.delegate = self;
         self.tabBar.barTintColor = UIColor(hex: "#2d2d2d");
         self.tabBar.tintColor = UIColor.white;
-        
-        let dashboard = DashboardViewController();
-        let profile = ProfileViewController();
-        let settings = SettingsViewController();
         
         dashboard.tabBarItem = UITabBarItem(title: "Dashboard", image: UIImage(named: "home.png"), tag: 0);
         profile.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "profile.png"), tag: 1);
         settings.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(named: "settings.png"), tag: 2);
         
-        viewControllers = [dashboard, profile, settings];
+        viewControllers = [profile, dashboard,  settings];
+    }
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController)
+    {
+        if (viewController.title! == "Dashboard")
+        {
+            (viewController as! DashboardViewController).reload();
+        }
     }
 }
