@@ -136,7 +136,7 @@ class DashboardViewController: FSBaseViewController {
         let imageEdgeInset = UIEdgeInsets(top: imageInset, left: imageInset, bottom: imageInset, right: imageInset);
         
         let homeButton = FSButton(frame: CGRect(x: 0, y: 0, width: squareLength, height: squareLength));
-        let teamButton = FSButton(frame: CGRect(x: 0, y: 0, width: squareLength, height: squareLength));
+        let calendarButton = FSButton(frame: CGRect(x: 0, y: 0, width: squareLength, height: squareLength));
         let resourcesButton = FSButton(frame: CGRect(x: 0, y: 0, width: squareLength, height: squareLength));
         let newsButton = FSButton(frame: CGRect(x: 0, y: 0, width: squareLength, height: squareLength));
         let settingsButton = FSButton(frame: CGRect(x: 0, y: 0, width: squareLength * 2, height: squareLength / 1.5));
@@ -147,11 +147,11 @@ class DashboardViewController: FSBaseViewController {
         homeButton.firstColor = "#f1407e";
         homeButton.secondColor = "#f2693c";
         
-        teamButton.translatesAutoresizingMaskIntoConstraints = false;
-        teamButton.cornerMask = [.layerMaxXMinYCorner]
-        teamButton.titleColor = "#ffffff";
-        teamButton.firstColor = "#01e3ff";
-        teamButton.secondColor = "#0390fd";
+        calendarButton.translatesAutoresizingMaskIntoConstraints = false;
+        calendarButton.cornerMask = [.layerMaxXMinYCorner]
+        calendarButton.titleColor = "#ffffff";
+        calendarButton.firstColor = "#01e3ff";
+        calendarButton.secondColor = "#0390fd";
         
         resourcesButton.translatesAutoresizingMaskIntoConstraints = false;
         resourcesButton.cornerMask = []
@@ -183,17 +183,18 @@ class DashboardViewController: FSBaseViewController {
         homeButton.widthAnchor.constraint(equalToConstant: squareLength).isActive = true;
         homeButton.addTarget(self, action: #selector(openTeamView), for: .touchUpInside);
         
-        scrollView!.addSubview(teamButton);
+        scrollView!.addSubview(calendarButton);
         
-        teamButton.setImage(UIImage(named: "calendar.png"), for: .normal)
-        teamButton.imageView?.contentMode = .scaleToFill;
-        teamButton.imageEdgeInsets = imageEdgeInset;
+        calendarButton.setImage(UIImage(named: "calendar.png"), for: .normal)
+        calendarButton.imageView?.contentMode = .scaleToFill;
+        calendarButton.imageEdgeInsets = imageEdgeInset;
         
-        teamButton.topAnchor.constraint(equalTo: horizontalLine.bottomAnchor, constant: 15).isActive = true;
-        teamButton.leadingAnchor.constraint(equalTo: homeButton.trailingAnchor).isActive = true;
-        teamButton.trailingAnchor.constraint(equalTo: scrollView!.trailingAnchor, constant: -15).isActive = true;
-        teamButton.heightAnchor.constraint(equalToConstant: squareLength).isActive = true;
-        teamButton.widthAnchor.constraint(equalToConstant: squareLength).isActive = true;
+        calendarButton.topAnchor.constraint(equalTo: horizontalLine.bottomAnchor, constant: 15).isActive = true;
+        calendarButton.leadingAnchor.constraint(equalTo: homeButton.trailingAnchor).isActive = true;
+        calendarButton.trailingAnchor.constraint(equalTo: scrollView!.trailingAnchor, constant: -15).isActive = true;
+        calendarButton.heightAnchor.constraint(equalToConstant: squareLength).isActive = true;
+        calendarButton.widthAnchor.constraint(equalToConstant: squareLength).isActive = true;
+        calendarButton.addTarget(self, action: #selector(openCalendarView), for: .touchUpInside);
         
         scrollView!.addSubview(resourcesButton);
         
@@ -205,6 +206,7 @@ class DashboardViewController: FSBaseViewController {
         resourcesButton.leadingAnchor.constraint(equalTo: scrollView!.leadingAnchor, constant: 15).isActive = true;
         resourcesButton.heightAnchor.constraint(equalToConstant: squareLength).isActive = true;
         resourcesButton.widthAnchor.constraint(equalToConstant: squareLength).isActive = true;
+        resourcesButton.addTarget(self, action: #selector(openResourcesView), for: .touchUpInside);
         
         scrollView!.addSubview(newsButton);
         
@@ -216,6 +218,7 @@ class DashboardViewController: FSBaseViewController {
         newsButton.trailingAnchor.constraint(equalTo: scrollView!.trailingAnchor, constant: -15).isActive = true;
         newsButton.heightAnchor.constraint(equalToConstant: squareLength).isActive = true;
         newsButton.widthAnchor.constraint(equalToConstant: squareLength).isActive = true;
+        newsButton.addTarget(self, action: #selector(openNewsView), for: .touchUpInside);
         
         scrollView!.addSubview(settingsButton);
         
@@ -230,6 +233,7 @@ class DashboardViewController: FSBaseViewController {
         settingsButton.trailingAnchor.constraint(equalTo: scrollView!.trailingAnchor, constant: -15).isActive = true;
         settingsButton.heightAnchor.constraint(equalToConstant: squareLength).isActive = true;
         settingsButton.widthAnchor.constraint(equalToConstant: safeWidth).isActive = true;
+        settingsButton.addTarget(self, action: #selector(openTeamSettingsView), for: .touchUpInside);
         
         let scrollViewAnchor = UIView(frame: scrollView!.bounds);
 
@@ -246,5 +250,29 @@ class DashboardViewController: FSBaseViewController {
     {
         let teamView = TeamViewController();
         navigationController?.pushViewController(teamView, animated: true);
+    }
+    
+    @objc func openResourcesView()
+    {
+        let resourceView = ResourcesViewController();
+        navigationController?.pushViewController(resourceView, animated: true);
+    }
+    
+    @objc func openNewsView()
+    {
+        let newsView = NewsViewController();
+        navigationController?.pushViewController(newsView, animated: true);
+    }
+    
+    @objc func openCalendarView()
+    {
+        let calendarView = CalendarViewController();
+        navigationController?.pushViewController(calendarView, animated: true);
+    }
+    
+    @objc func openTeamSettingsView()
+    {
+        let teamSettings = TeamSettingsViewController();
+        navigationController?.pushViewController(teamSettings, animated: true);
     }
 }

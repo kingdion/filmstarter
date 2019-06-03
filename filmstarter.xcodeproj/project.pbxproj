@@ -28,13 +28,18 @@
 		F75B09B1229B66DE00CF7559 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75B09B0229B66DE00CF7559 /* AuthenticationManager.swift */; };
 		F75B09B5229B8EF000CF7559 /* FSProtectedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75B09B4229B8EF000CF7559 /* FSProtectedViewController.swift */; };
 		F75B09BB229BDC5A00CF7559 /* FSProjectBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75B09BA229BDC5A00CF7559 /* FSProjectBox.swift */; };
+		F75B09BD22A4C94D00CF7559 /* ResourcesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75B09BC22A4C94D00CF7559 /* ResourcesViewController.swift */; };
+		F75B09BF22A4C95800CF7559 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75B09BE22A4C95800CF7559 /* NewsViewController.swift */; };
+		F75B09C122A4C96300CF7559 /* TeamSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75B09C022A4C96300CF7559 /* TeamSettingsViewController.swift */; };
+		F75B09C322A4C97C00CF7559 /* CalenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75B09C222A4C97C00CF7559 /* CalenderViewController.swift */; };
+		F75B09C522A4D1EF00CF7559 /* TeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75B09C422A4D1EF00CF7559 /* TeamViewController.swift */; };
 		F7DFB4DD2296B2AA00626FDD /* MyriadPro-Bold.OTF in Resources */ = {isa = PBXBuildFile; fileRef = F7DFB4DB2296B2A700626FDD /* MyriadPro-Bold.OTF */; };
 		F7DFB4DE2296B2AD00626FDD /* MyriadPro-Regular.OTF in Resources */ = {isa = PBXBuildFile; fileRef = F7DFB4DC2296B2A700626FDD /* MyriadPro-Regular.OTF */; };
 		F7DFB4DF2296B2B000626FDD /* MyriadPro-SemiBold.OTF in Resources */ = {isa = PBXBuildFile; fileRef = F7DFB4DA2296B2A700626FDD /* MyriadPro-SemiBold.OTF */; };
 		F7DFB4E12296DD8F00626FDD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DFB4E02296DD8F00626FDD /* LoginViewController.swift */; };
 		F7DFB4E92297DA2D00626FDD /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DFB4E82297DA2D00626FDD /* RegisterViewController.swift */; };
 		F7DFB4EB2297DB5900626FDD /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DFB4EA2297DB5900626FDD /* DashboardViewController.swift */; };
-		F7DFB4EF2297E16200626FDD /* TeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DFB4EE2297E16200626FDD /* TeamViewController.swift */; };
+		F7DFB4EF2297E16200626FDD /* FSTopBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DFB4EE2297E16200626FDD /* FSTopBaseView.swift */; };
 		F7DFB4F12297E54500626FDD /* FSBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DFB4F02297E54500626FDD /* FSBaseViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,13 +69,18 @@
 		F75B09B0229B66DE00CF7559 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		F75B09B4229B8EF000CF7559 /* FSProtectedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSProtectedViewController.swift; sourceTree = "<group>"; };
 		F75B09BA229BDC5A00CF7559 /* FSProjectBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSProjectBox.swift; sourceTree = "<group>"; };
+		F75B09BC22A4C94D00CF7559 /* ResourcesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesViewController.swift; sourceTree = "<group>"; };
+		F75B09BE22A4C95800CF7559 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		F75B09C022A4C96300CF7559 /* TeamSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamSettingsViewController.swift; sourceTree = "<group>"; };
+		F75B09C222A4C97C00CF7559 /* CalenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderViewController.swift; sourceTree = "<group>"; };
+		F75B09C422A4D1EF00CF7559 /* TeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamViewController.swift; sourceTree = "<group>"; };
 		F7DFB4DA2296B2A700626FDD /* MyriadPro-SemiBold.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-SemiBold.OTF"; sourceTree = "<group>"; };
 		F7DFB4DB2296B2A700626FDD /* MyriadPro-Bold.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Bold.OTF"; sourceTree = "<group>"; };
 		F7DFB4DC2296B2A700626FDD /* MyriadPro-Regular.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Regular.OTF"; sourceTree = "<group>"; };
 		F7DFB4E02296DD8F00626FDD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F7DFB4E82297DA2D00626FDD /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		F7DFB4EA2297DB5900626FDD /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
-		F7DFB4EE2297E16200626FDD /* TeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamViewController.swift; sourceTree = "<group>"; };
+		F7DFB4EE2297E16200626FDD /* FSTopBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSTopBaseView.swift; sourceTree = "<group>"; };
 		F7DFB4F02297E54500626FDD /* FSBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSBaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -173,7 +183,11 @@
 			isa = PBXGroup;
 			children = (
 				F7258E56229A765100B64465 /* BottomTabBarViewController.swift */,
-				F7DFB4EE2297E16200626FDD /* TeamViewController.swift */,
+				F75B09BC22A4C94D00CF7559 /* ResourcesViewController.swift */,
+				F75B09BE22A4C95800CF7559 /* NewsViewController.swift */,
+				F75B09C022A4C96300CF7559 /* TeamSettingsViewController.swift */,
+				F75B09C222A4C97C00CF7559 /* CalenderViewController.swift */,
+				F75B09C422A4D1EF00CF7559 /* TeamViewController.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -203,6 +217,7 @@
 			children = (
 				F75B09AC229B42BC00CF7559 /* FSNavigationController.swift */,
 				F75B09B4229B8EF000CF7559 /* FSProtectedViewController.swift */,
+				F7DFB4EE2297E16200626FDD /* FSTopBaseView.swift */,
 				F7DFB4F02297E54500626FDD /* FSBaseViewController.swift */,
 			);
 			path = Base;
@@ -359,9 +374,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F75B09BD22A4C94D00CF7559 /* ResourcesViewController.swift in Sources */,
 				F75B09AD229B42BC00CF7559 /* FSNavigationController.swift in Sources */,
+				F75B09BF22A4C95800CF7559 /* NewsViewController.swift in Sources */,
 				F7DFB4E12296DD8F00626FDD /* LoginViewController.swift in Sources */,
 				F7DFB4F12297E54500626FDD /* FSBaseViewController.swift in Sources */,
+				F75B09C322A4C97C00CF7559 /* CalenderViewController.swift in Sources */,
 				F7258E53229A6E7200B64465 /* HideKeyboardExtension.swift in Sources */,
 				F75B09B1229B66DE00CF7559 /* AuthenticationManager.swift in Sources */,
 				F75B09B5229B8EF000CF7559 /* FSProtectedViewController.swift in Sources */,
@@ -369,7 +387,9 @@
 				F7DFB4EB2297DB5900626FDD /* DashboardViewController.swift in Sources */,
 				F75B09AB229AAE5300CF7559 /* AlertHelper.swift in Sources */,
 				F7258E57229A765100B64465 /* BottomTabBarViewController.swift in Sources */,
+				F75B09C122A4C96300CF7559 /* TeamSettingsViewController.swift in Sources */,
 				F7DFB4E92297DA2D00626FDD /* RegisterViewController.swift in Sources */,
+				F75B09C522A4D1EF00CF7559 /* TeamViewController.swift in Sources */,
 				F7206D15228D0A4400F9EF53 /* HomeViewController.swift in Sources */,
 				F7206D2C228D87F800F9EF53 /* FSInput.swift in Sources */,
 				F7258E5B229A7B9400B64465 /* SettingsViewController.swift in Sources */,
@@ -378,7 +398,7 @@
 				F7206CFC228CEC6700F9EF53 /* AppDelegate.swift in Sources */,
 				F7258E55229A74F200B64465 /* ProfileViewController.swift in Sources */,
 				F7206D1A228D107700F9EF53 /* FSButton.swift in Sources */,
-				F7DFB4EF2297E16200626FDD /* TeamViewController.swift in Sources */,
+				F7DFB4EF2297E16200626FDD /* FSTopBaseView.swift in Sources */,
 				F75B09AF229B601200CF7559 /* JWTAdapter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
