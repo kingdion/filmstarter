@@ -50,7 +50,7 @@ class HomeViewController: FSBaseViewController {
         loginButton.translatesAutoresizingMaskIntoConstraints = false;
         loginButton.titleColor = "#f2693c";
         loginButton.firstColor = "#ffffff";
-        loginButton.secondColor = "#dcdcdc";
+        loginButton.secondColor = "#eeeeee";
         
         contentView!.addSubview(loginButton);
         
@@ -66,7 +66,7 @@ class HomeViewController: FSBaseViewController {
         registerButton.translatesAutoresizingMaskIntoConstraints = false;
         registerButton.titleColor = "#f2693c";
         registerButton.firstColor = "#ffffff";
-        registerButton.secondColor = "#dcdcdc";
+        registerButton.secondColor = "#eeeeee";
         
         contentView!.addSubview(registerButton);
         

@@ -210,6 +210,7 @@ class ProfileViewController : FSBaseViewController
             Remove the token from the client and redirect
             them to the homepage to login again.
         */
+        AuthenticationManager.setToken(token: "");
         JWTAdapter.accessToken = "";
         self.present(HomeViewController(), animated: true);
     }
